@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>Towards Visualization of Physiological Processes</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <!-- <script type="text/javascript" src="d3.layout.cloud.js"></script> -->
+    <script type="text/javascript" src="script.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div id="scaleHeatMap">
+                    <div id="scaleHeatMapHeader">Papers distribution among the spatio-temporal scale</div>
+                </div>
+                <div id="levelsChart">
+                    <div id="levelsChartHeader">Papers distribution among the scale levels</div>
+                </div>
+                <div class="tableContainer"></div>
+            </div>
+            <div class="col-md-8">
+                <div id="triangles">
+                    <div id="trianglesHeader">Papers distribution among the visualization purpose categorization (DV - Direct visualization, IV - Illustrative visualization, VA - Visual analysis)</div>
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <thead class="triangleFixedHeader">
+                            <tr>
+                                <th>Molecule</th>
+                                <th>Organelle</th>
+                                <th>Cell</th>
+                                <th>Tissue</th>
+                                <th>Organ</th>
+                            </tr>
+                        </thead>
+                        <tbody class="triangleContent">
+                            <tr>
+                                <td id="triangleMolecule"></td>
+                                <td id="triangleOrganelle"></td>
+                                <td id="triangleCell"></td>
+                                <td id="triangleTissue"></td>
+                                <td id="triangleOrgan"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="paper">
+                    <div id="paperHeader">Paper content</div>
+                    <div id="paperHeaderInfo">
+                        <h1>The Cat is Out of the Bag : Cortical Simulations with 10 9 Neurons , 10 13 Synapses</h1>
+                        <p>Rajagopal Ananthanarayanan, Steven K. Esser Horst D. Simon, and Dharmendra S. Modha</p>
+                    </div>
+                    <div id="paperContent">
+                        <div id="paperText">
+                            <p>
+                                <b>Abstract:</b><br /> In the quest for cognitive computing, we have built a massively parallel cortical simulator, C2, that incorporates a number of innovations in computation, memory, and communication. Using C2 on LLNL's
+                                Dawn Blue Gene/P supercomputer with 147; 456 CPUs and 144 TB of main memory, we report two cortical simulations { at unprecedented scale { that e®ectively saturate the entire memory capacity and refresh it at least every
+                                simulated second. The rst simulation consists of 1:6 billion neurons and 8:87 trillion synapses with experimentally-measured gray matter thalamocortical connectivity. The second simulation has 900 million neurons and 9
+                                trillion synapses with probabilistic connectivity. We demonstrate nearly perfect weak scaling and attractive strong scaling. The simulations, which incorporate phenomenological spiking neurons, individual learning synapses,
+                                axonal delays, and dynamic synaptic channels, exceed the scale of the cat cortex, marking the dawn of a new era in the scale of cortical simulations.
+                            </p>
+                        </div>
+                        <div id="paperImage">
+                            <img src="images\ananthanarayanan.jpg" width="600px" />
+                        </div>
+                        <div style="clear:both" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
