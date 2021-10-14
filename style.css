@@ -1,3 +1,14 @@
+:root {
+    --primary: #697887; /* #963 */
+    --secondary: #35495C;
+    --tint-2: #8D99A6;
+    --tint: #BEC3C9;
+    --accent: #F6E8D4;
+    
+    /*--highlight: #EB8; 
+    --lowlight: #B74;  */
+}
+
 body {
     background: #FFF;
     color: #000;
@@ -5,7 +16,7 @@ body {
     margin: 0px;
     padding: 0
 }
-
+/* PAPER REFERENCE TABLE */
 table,
 td,
 a {
@@ -25,32 +36,35 @@ h2 {
 
 h3 {
     font: normal normal 13px Verdana, Geneva, Arial, Helvetica, sans-serif;
-    color: #008000;
+    /* color: #008000; */
     margin: 0 0 15px 0
 }
 
 div.tableContainer {
     clear: both;
-    border: 1px solid #963;
+    border: 1px solid var(--secondary);
     height: 285px;
     overflow: hidden;
-    width: 560px;
+    width: 100%;
+    min-width: 560px;
     margin: 5px;
 }
+
+thead.fixedHeader th {
+    background: var(--primary);
+    border-left: 1px solid var(--secondary);
+    border-right: 1px solid var(--secondary);
+    border-top: 1px solid var(--secondary);
+    font-weight: normal;
+    padding: 4px 3px;
+    text-align: center;
+}
+
 
 thead.fixedHeader tr {
     display: block;
 }
 
-thead.fixedHeader th {
-    background: #C96;
-    border-left: 1px solid #EB8;
-    border-right: 1px solid #B74;
-    border-top: 1px solid #EB8;
-    font-weight: normal;
-    padding: 4px 3px;
-    text-align: left
-}
 
 thead.fixedHeader {
     color: #FFF;
@@ -66,7 +80,7 @@ html>body tbody.scrollContent {
 }
 
 tbody.scrollContent td {
-    /*background: #FFF;*/
+    /* background: #FFF; */
     border-bottom: none;
     border-left: none;
     border-right: 1px solid #CCC;
@@ -75,72 +89,78 @@ tbody.scrollContent td {
 }
 
 html>body thead.fixedHeader th {
-    width: 25px
+    width: 5%
 }
 
 html>body thead.fixedHeader th+th {
-    width: 110px
+    width: 20%
 }
 
 html>body thead.fixedHeader th+th+th {
-    width: 350px
+    width: 85%
 }
 
 html>body thead.fixedHeader th+th+th+th {
-    width: 51px
+    width: 100%
 }
 
 html>body tbody.scrollContent td {
-    width: 25px
+    width: 5%
 }
 
 html>body tbody.scrollContent td+td {
-    width: 110px
+    width: 20%
 }
 
 html>body tbody.scrollContent td+td+td {
-    width: 350px
+    width: 85%
 }
 
 html>body tbody.scrollContent td+td+td+td {
-    width: 30px
+    width: 100%
 }
+
+
+/* TALLIED BAR CHART */
 
 div#levelsChart {
     margin: 5px;
-    border: 1px solid #963;
-    width: 560px;
+    border: 1px solid var(--secondary);
+    width: 100%;
+    min-width: 560px;
 }
 
 div#levelsChartHeader {
-    background: #C96;
-    border-left: 1px solid #EB8;
-    border-right: 1px solid #B74;
-    border-top: 1px solid #EB8;
+    background: var(--primary);
+    border-left: 1px solid var(--secondary);
+    border-right: 1px solid var(--secondary);
+    border-top: 1px solid var(--secondary);
     font-weight: normal;
     padding: 4px 3px;
-    text-align: left;
+    text-align: center;
     color: #FFF;
 }
 
 rect.bar {
-    fill: grey;
+    fill: var(--primary);
 }
 
 rect.bar_selected {
-    fill: #C96;
+    fill: var(--tint);
+    
 }
 
 rect.bar_hover {
-    fill: #e8c09a;
+    fill: var(--accent);
+    stroke: 1px solid var(--secondary);
 }
 
 tr.row_hover {
-    background-color: #e8c09a;
+    background-color: var(--accent);
 }
 
 tr.row_selected {
-    background-color: #C96;
+    background-color: var(--tint);
 }
 
 .axis {
@@ -158,20 +178,23 @@ tr.row_selected {
     display: none;
 }
 
+/* HEATMAP */
+
 div#scaleHeatMap {
     margin: 5px;
-    border: 1px solid #963;
-    width: 560px;
+    border: 1px solid var(--secondary);
+    width: 100%;
+    min-width: 560px;
 }
 
 div#scaleHeatMapHeader {
-    background: #C96;
-    border-left: 1px solid #EB8;
-    border-right: 1px solid #B74;
-    border-top: 1px solid #EB8;
+    background: var(--primary);
+    border-left: 1px solid var(--secondary);
+    border-right: 1px solid var(--secondary);
+    border-top: 1px solid var(--secondary);
     font-weight: normal;
     padding: 4px 3px;
-    text-align: left;
+    text-align: center;
     color: #FFF;
 }
 
@@ -199,21 +222,24 @@ text.axis-worktime {
     fill: #000;
 }
 
+/* TRIANGLES -- PAPER DISTRIBUTION BY VISUALIZATION CATEGORY */
+
 div#triangles {
-    margin: 0px;
-    border: 1px solid #963;
-    width: 1326px;
-    /*height: 251px;*/
+    margin-top: 5px;
+    border: 1px solid var(--secondary);
+    width: 100%;
+    min-width: 1326px;
+    /* height: 251px; */
 }
 
 div#trianglesHeader {
-    background: #C96;
-    border-left: 1px solid #EB8;
-    border-right: 1px solid #B74;
-    border-top: 1px solid #EB8;
+    background: var(--primary);
+    border-left: 1px solid var(--secondary);
+    border-right: 1px solid var(--secondary);
+    border-top: 1px solid var(--secondary);
     font-weight: normal;
     padding: 4px 3px;
-    text-align: left;
+    text-align: center;
     color: #FFF;
 }
 
@@ -227,47 +253,93 @@ circle.ccSelectSelected {
 
 thead.triangleFixedHeader tr {
     display: block;
-    width: 1326px;
+    width: 100%;
+    min-width: 1326px;
 }
 
 thead.triangleFixedHeader th {
-    background: #C96;
-    border-left: 1px solid #EB8;
-    border-right: 1px solid #B74;
-    border-top: 1px solid #EB8;
+    background: var(--tint-2);
+    border-left: 1px solid var(--secondary);
+    border-right: 1px solid var(--secondary);
+    border-top: 1px solid var(--secondary);
     font-weight: normal;
     padding: 4px 3px;
     text-align: center;
-    width: 258px;
+    width: 100%;
+    min-width: 258px;
 }
 
 thead.triangleFixedHeader {
     color: #FFF;
     text-decoration: none;
-    width: 100%
+    /* width: 100% */
 }
 
 tbody.triangleContent {
     display: block;
     overflow: auto;
+    /* width: 100%; */
+    
+}
+
+/* tbody.triangleContent td {
+    background: #FFF;
+    border-right: 1px solid #CCC;
+    width: 100%;
+    min-width: 258px;
+    padding-top: 10px;
+    padding-left: 5px;
+} */
+
+html>body thead.triangleFixedHeader th {
+    width: 25%
+}
+
+html>body thead.triangleFixedHeader th+th {
+    width: 45%
+}
+
+html>body thead.triangleFixedHeader th+th+th {
+    width: 75%
+}
+
+html>body thead.triangleFixedHeader th+th+th+th {
     width: 100%
 }
 
-tbody.triangleContent td {
-    background: #FFF;
+html>body tbody.triangleContent td {
+    width: 25%;
+    padding:10px;
     border-right: 1px solid #CCC;
-    width: 265px;
-    padding-top: 10px;
-    padding-left: 5px;
 }
+
+html>body tbody.triangleContent td+td {
+    width: 50%;
+    padding:10px;
+    border-right: 1px solid #CCC;
+}
+
+html>body tbody.triangleContent td+td+td {
+    width: 75%;
+    padding:10px;
+    border-right: 1px solid #CCC;
+}
+
+html>body tbody.triangleContent td+td+td+td {
+    width: 100%;
+    padding:10px;
+    border-right: 1px solid #CCC;
+}
+
+/* HOVER ON TABLES -- DETAILS  */
 
 div.tooltip {
     position: absolute;
-    text-align: center;
-    padding: 2px;
+    text-align: left;
+    padding: 3px;
     font: 12px sans-serif;
-    background: #C96;
-    border: 1px solid #B74;
+    background: var(--primary);
+    border: 1px solid var(--secondary);
     border-radius: 8px;
     pointer-events: none;
     color: white;
@@ -275,16 +347,16 @@ div.tooltip {
 
 div#keywordsBubbleChart {
     margin: 10px;
-    border: 1px solid #963;
+    border: 1px solid var(--secondary);
     width: 670px;
     height: 370px;
 }
 
 div#keywordsBubbleChartHeader {
-    background: #C96;
-    border-left: 1px solid #EB8;
-    border-right: 1px solid #B74;
-    border-top: 1px solid #EB8;
+    background: var(--primary);
+    border-left: 1px solid var(--secondary);
+    border-right: 1px solid var(--secondary);
+    border-top: 1px solid var(--secondary);
     font-weight: normal;
     padding: 4px 3px;
     text-align: left;
@@ -292,7 +364,7 @@ div#keywordsBubbleChartHeader {
 }
 
 div#imageCollection {
-    border: 1px solid #963;
+    border: 1px solid var(--secondary);
 }
 
 div#imageCollection thead {
@@ -301,11 +373,13 @@ div#imageCollection thead {
     width: 100%
 }
 
+/* PAPER DETAILS */
+
 div#imageCollection thead th {
-    background: #C96;
-    border-left: 1px solid #EB8;
-    border-right: 1px solid #B74;
-    border-top: 1px solid #EB8;
+    background: var(--primary);
+    border-left: 1px solid var(--secondary);
+    border-right: 1px solid var(--secondary);
+    border-top: 1px solid var(--secondary);
     font-weight: normal;
     padding: 4px 3px;
     text-align: left
@@ -315,10 +389,10 @@ div#imageCollection td.rowHeader {
     width: 75px;
     color: #FFF;
     text-decoration: none;
-    background: #C96;
-    border-left: 1px solid #EB8;
-    border-right: 1px solid #B74;
-    border-top: 1px solid #EB8;
+    background: var(--primary);
+    border-left: 1px solid var(--secondary);
+    border-right: 1px solid var(--secondary);
+    border-top: 1px solid var(--secondary);
     font-weight: normal;
     padding: 4px 3px;
     text-align: left
@@ -338,10 +412,10 @@ div#imageCollection td.imgCell img {
     border: 1px solid black;
 }
 
-div#leftSide {
+/* div#leftSide {
     margin: 0px;
     padding: 0px;
-    /*width:  570px;*/
+    width:  570px;
     width: 30%;
     float: left;
 }
@@ -349,25 +423,26 @@ div#leftSide {
 div#rightSide {
     margin: 5px;
     padding: 0px;
-    /*width: 1300px;*/
+    width: 1300px;
     width: 65%;
     float: left;
-}
+}  */
 
 div#paper {
     margin: 5px 0px;
-    border: 1px solid #963;
-    width: 1326px;
+    border: 1px solid var(--secondary);
+    width: 100%;
+    min-width: 1326px;
 }
 
 div#paperHeader {
-    background: #C96;
-    border-left: 1px solid #EB8;
-    border-right: 1px solid #B74;
-    border-top: 1px solid #EB8;
+    background: var(--primary);
+    border-left: 1px solid var(--secondary);
+    border-right: 1px solid var(--secondary);
+    border-top: 1px solid var(--secondary);
     font-weight: normal;
     padding: 4px 3px;
-    text-align: left;
+    text-align: center;
     color: #FFF;
 }
 

@@ -11,6 +11,14 @@ var trianglesOrganData     = []
 
 var keywordsObject = {}
 
+// COLORS
+var colorDV = "#ffbe0b";
+var colorIV = "#ff006e";
+var colorVA = "#3a86ff";
+var accent = "#F6E8D4";
+var selected = "#BEC3C9";
+
+
 var groupTriangles = [
 	// dviv = 0
 	{ 
@@ -899,10 +907,10 @@ var fillCategoryTriangles = function(level, dataObject)
 		.attr('transform', 'translate(' + (purposeCircleSize/2 + triangleSize/2) + ', ' + purposeCircleSize/2 + ')');
 	circleDV.append('circle')
 		.attr('cx', 0)
-		.attr('cy', 0)
+		.attr('cy', -3)
 		.attr('r', purposeCircleSize)
-		.style('stroke', '#963')
-		.style('fill', '#C96');
+		.style('stroke', colorDV) //#963
+		.style('fill', colorDV); //#C96
 	circleDV
 		.append('text')
 		.text('DV')
@@ -914,11 +922,11 @@ var fillCategoryTriangles = function(level, dataObject)
 		.attr('class', 'circleIV')
 		.attr('transform', 'translate(' + purposeCircleSize/2 + ', ' + (triangleHeight + purposeCircleSize/2) + ')');
 	circleIV.append('circle')
-		.attr('cx', 0)
+		.attr('cx', -4)
 		.attr('cy', 0)
 		.attr('r', 20)
-		.style('stroke', '#963')
-		.style('fill', '#C96');
+		.style('stroke', colorIV) //#963
+		.style('fill', colorIV); //#C96
 	circleIV
 		.append('text')
 		.text('IV')
@@ -930,11 +938,11 @@ var fillCategoryTriangles = function(level, dataObject)
 		.attr('class', 'circleVA')
 		.attr('transform', 'translate(' + (triangleSize + purposeCircleSize/2) + ', ' + (triangleHeight + purposeCircleSize/2) + ')');
 	circleVA.append('circle')
-		.attr('cx', 0)
+		.attr('cx', 4)
 		.attr('cy', 0)
 		.attr('r', 20)
-		.style('stroke', '#963')
-		.style('fill', '#C96');
+		.style('stroke', colorVA)//#963
+		.style('fill', colorVA);//#C96
 	circleVA
 		.append('text')
 		.text('VA')
