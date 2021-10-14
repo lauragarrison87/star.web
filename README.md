@@ -1,4 +1,4 @@
-# Towards the Visualization of Physiological Processes: A State-of-the-Art Report
+# Towards the Visualization of Physiological Processes:<br/>A State-of-the-Art Report
 ## Supplementary Materials
 
 ![Screenshot of navigation interface for literature collected and categorized to date for Physiology Visualization State-of-the-Art Report](preview.png)
