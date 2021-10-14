@@ -58,6 +58,12 @@ div.tableContainer {
     margin: 5px;
 }
 
+thead.fixedHeader {
+    color: #FFF;
+    text-decoration: none;
+    width: 100%
+}
+
 thead.fixedHeader th {
     background: var(--primary);
     border-left: 1px solid var(--secondary);
@@ -73,12 +79,6 @@ thead.fixedHeader tr {
     display: block;
 }
 
-
-thead.fixedHeader {
-    color: #FFF;
-    text-decoration: none;
-    width: 100%
-}
 
 html>body tbody.scrollContent {
     display: block;
@@ -259,13 +259,18 @@ circle.ccSelectSelected {
     visibility: visible;
 }
 
-thead.triangleFixedHeader tr {
-    display: block;
-    width: 100%;
-    min-width: 1326px;
+
+.triangleOuterWrapper {
+    display: flex;
 }
 
-thead.triangleFixedHeader th {
+.triangleWrapper {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+}
+
+.triangleHeader {
     background: var(--tint-2);
     border-left: 1px solid var(--secondary);
     border-right: 1px solid var(--secondary);
@@ -273,70 +278,14 @@ thead.triangleFixedHeader th {
     font-weight: normal;
     padding: 4px 3px;
     text-align: center;
-    width: 100%;
-    min-width: 258px;
-}
-
-thead.triangleFixedHeader {
     color: #FFF;
-    text-decoration: none;
-    /* width: 100% */
 }
 
-tbody.triangleContent {
-    display: block;
-    overflow: auto;
-    /* width: 100%; */
-    
-}
-
-/* tbody.triangleContent td {
-    background: #FFF;
-    border-right: 1px solid #CCC;
-    width: 100%;
-    min-width: 258px;
-    padding-top: 10px;
-    padding-left: 5px;
-} */
-
-html>body thead.triangleFixedHeader th {
-    width: 25%
-}
-
-html>body thead.triangleFixedHeader th+th {
-    width: 45%
-}
-
-html>body thead.triangleFixedHeader th+th+th {
-    width: 75%
-}
-
-html>body thead.triangleFixedHeader th+th+th+th {
-    width: 100%
-}
-
-html>body tbody.triangleContent td {
-    width: 25%;
-    padding:10px;
-    border-right: 1px solid #CCC;
-}
-
-html>body tbody.triangleContent td+td {
-    width: 50%;
-    padding:10px;
-    border-right: 1px solid #CCC;
-}
-
-html>body tbody.triangleContent td+td+td {
-    width: 75%;
-    padding:10px;
-    border-right: 1px solid #CCC;
-}
-
-html>body tbody.triangleContent td+td+td+td {
-    width: 100%;
-    padding:10px;
-    border-right: 1px solid #CCC;
+.triangleContent {
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    border-right: 1px solid var(--secondary);
 }
 
 /* HOVER ON TABLES -- DETAILS  */
@@ -471,3 +420,5 @@ div#paperImage {
     float: right;
     width: 640px;
 }
+
+
