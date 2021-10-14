@@ -5,14 +5,13 @@ https://paletton.com/#uid=13-0u0k7Gq61NHw4suQbkm1eKhR
 https://www.schemecolor.com/sample?getcolor=708090
 */
 
-
 :root {
-    --primary: #697887; /* #963 */
+    --primary: #697887;
+    /* #963 */
     --secondary: #35495C;
     --tint-2: #8D99A6;
     --tint: #BEC3C9;
     --accent: #F6E8D4;
-    
     /*--highlight: #EB8; 
     --lowlight: #B74;  */
 }
@@ -24,7 +23,10 @@ body {
     margin: 0px;
     padding: 0
 }
+
+
 /* PAPER REFERENCE TABLE */
+
 table,
 td,
 a {
@@ -74,11 +76,9 @@ thead.fixedHeader th {
     text-align: center;
 }
 
-
 thead.fixedHeader tr {
     display: block;
 }
-
 
 html>body tbody.scrollContent {
     display: block;
@@ -155,7 +155,6 @@ rect.bar {
 
 rect.bar_selected {
     fill: var(--tint);
-    
 }
 
 rect.bar_hover {
@@ -185,6 +184,7 @@ tr.row_selected {
 .x.axis path {
     display: none;
 }
+
 
 /* HEATMAP */
 
@@ -230,14 +230,17 @@ text.axis-worktime {
     fill: #000;
 }
 
+
 /* TRIANGLES -- PAPER DISTRIBUTION BY VISUALIZATION CATEGORY */
 
 div#triangles {
+    display: flex;
     margin-top: 5px;
     border: 1px solid var(--secondary);
-    width: 100%;
-    min-width: 1326px;
+    /* width: 100%; */
+    /* min-width: 800px; */
     /* height: 251px; */
+    flex-direction: column;
 }
 
 div#trianglesHeader {
@@ -259,9 +262,9 @@ circle.ccSelectSelected {
     visibility: visible;
 }
 
-
 .triangleOuterWrapper {
     display: flex;
+    flex-flow: wrap;
 }
 
 .triangleWrapper {
@@ -287,6 +290,7 @@ circle.ccSelectSelected {
     align-content: center;
     border-right: 1px solid var(--secondary);
 }
+
 
 /* HOVER ON TABLES -- DETAILS  */
 
@@ -330,6 +334,7 @@ div#imageCollection thead {
     width: 100%
 }
 
+
 /* PAPER DETAILS */
 
 div#imageCollection thead th {
@@ -369,6 +374,7 @@ div#imageCollection td.imgCell img {
     border: 1px solid black;
 }
 
+
 /* div#leftSide {
     margin: 0px;
     padding: 0px;
@@ -389,7 +395,7 @@ div#paper {
     margin: 5px 0px;
     border: 1px solid var(--secondary);
     width: 100%;
-    min-width: 1326px;
+    /* min-width: 1326px; */
 }
 
 div#paperHeader {
@@ -420,5 +426,3 @@ div#paperImage {
     float: right;
     width: 640px;
 }
-
-
