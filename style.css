@@ -374,23 +374,6 @@ div#imageCollection td.imgCell img {
     border: 1px solid black;
 }
 
-
-/* div#leftSide {
-    margin: 0px;
-    padding: 0px;
-    width:  570px;
-    width: 30%;
-    float: left;
-}
-
-div#rightSide {
-    margin: 5px;
-    padding: 0px;
-    width: 1300px;
-    width: 65%;
-    float: left;
-}  */
-
 div#paper {
     margin: 5px 0px;
     border: 1px solid var(--secondary);
@@ -414,15 +397,18 @@ div#paperHeaderInfo {
 }
 
 div#paperContent {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
     padding: 5px;
 }
 
 div#paperText {
-    float: left;
-    width: 660px;
+    /* float: left; */
+    flex-grow: 2;
 }
 
 div#paperImage {
-    float: right;
-    width: 640px;
+    /* float: right; */
+    flex: 1;
 }
