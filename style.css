@@ -10,8 +10,11 @@ https://www.schemecolor.com/sample?getcolor=708090
     /* #963 */
     --secondary: #35495C;
     --tint-2: #8D99A6;
-    --tint: #BEC3C9;
-    --accent: #F6E8D4;
+    --selected: #B4BCC3;
+    --hover: #D2D7DB;
+    /*  */
+    /* --selected: #C19CF6;  #BEC3C9; old version */
+    /* --hover: #E6D7FB;  #F6E8D4; old version */
     /*--highlight: #EB8; 
     --lowlight: #B74;  */
 }
@@ -154,20 +157,20 @@ rect.bar {
 }
 
 rect.bar_selected {
-    fill: var(--tint);
+    fill: var(--selected);
 }
 
 rect.bar_hover {
-    fill: var(--accent);
+    fill: var(--hover);
     stroke: 1px solid var(--secondary);
 }
 
 tr.row_hover {
-    background-color: var(--accent);
+    background-color: var(--hover);
 }
 
 tr.row_selected {
-    background-color: var(--tint);
+    background-color: var(--selected);
 }
 
 .axis {
