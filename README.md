@@ -13,7 +13,7 @@ Physiology describes the fundamental science of life and its deepest workings. W
 
 ### Additional materials 
 
-- [Database of categorized literature to date (work in progress)](resource/Physio_STAR_papers_10102021.xlsx)
+- [Database of categorized literature to date (work in progress)](resource/Physio_STAR_papers_15102021.pdf)
 - Short Biography of authors:
     - *Laura Garrison* is a PhD student in the Dept. of Informatics at the Univ. of Bergen, Norway. Her thesis centers on the visualization of physiological processes for communication, exploration, and analysis. She is a board-certified medical illustrator with extensive experience in the medical education technology start-up space as an illustrator, designer, and content director. 
     - *Ivan Kolesar* received his PhD from the Dept. of Informatics at the Univ. of Bergen, Norway, where his research interests include molecular visualization, the visualization of structural phenomena, and physiology visualization. He now is a software engineer for Rainfall AS, a technology company in Bergen. 
