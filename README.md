@@ -3,7 +3,7 @@
 
 ![Screenshot of navigation interface for literature collected and categorized to date for Physiology Visualization State-of-the-Art Report](resource/preview.png)
 
-Explore the space of physiology visualization literature (current number: *155* articles), organized according to spatio-temporal scale and visualization approach, here: [https://lauragarrison87.github.io/star.web/](https://lauragarrison87.github.io/star.web/)
+Explore the space of physiology visualization literature (current number: *155* articles), organized according to spatio-temporal scale and visualization approach, here: [https://lauragarrison87.github.io/star.web/vis_tool](https://lauragarrison87.github.io/star.web/vis_tool)
 
 _Note: This is a work in progress!_ 
 
