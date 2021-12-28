@@ -17,8 +17,10 @@ var colorIV = "#ff006e";
 var colorVA = "#3a86ff";
 var primary = "#697887";
 var secondary = "#35495C";
-var hover = "#D2D7DB"; // HOVER COLOR #F6E8D4";
-var selected = "#B4BCC3"; // SELECTED COLOR "#BEC3C9";
+var hover = "#D2D7DB";
+var selected = "#B4BCC3";
+// SELECTED COLOR "#BEC3C9";
+// HOVER COLOR #F6E8D4";
 
 
 
@@ -541,14 +543,14 @@ var tabulate = function(data, columns) {
             }
 
             // select categoryCircle
-            var ndvx = parseFloat(d["Direct Vis"].replace(",", ".")) * 75;
-            var ndvy = parseFloat(d["Direct Vis"].replace(",", ".")) * 10;
+            var ndvx = parseFloat(d["Direct Vis"]) * 75;
+            var ndvy = parseFloat(d["Direct Vis"]) * 10;
 
-            var nivx = parseFloat(d["Illus Vis"].replace(",", ".")) * 8.66;
-            var nivy = parseFloat(d["Illus Vis"].replace(",", ".")) * 124.9;
+            var nivx = parseFloat(d["Illus Vis"]) * 8.66;
+            var nivy = parseFloat(d["Illus Vis"]) * 124.9;
 
-            var nvax = parseFloat(d["Vis analysis"].replace(",", ".")) * 141.34;
-            var nvay = parseFloat(d["Vis analysis"].replace(",", ".")) * 124.9;
+            var nvax = parseFloat(d["Vis analysis"]) * 141.34;
+            var nvay = parseFloat(d["Vis analysis"]) * 124.9;
 
             d.Level.split(",").forEach(function(lev, i) {
                 d3.select("#" + lev.trim() + "CcCover")
@@ -633,14 +635,14 @@ var tabulate = function(data, columns) {
         }
 
         // select categoryCircle
-        var ndvx = parseFloat(d["Direct Vis"].replace(",", ".")) * 75;
-        var ndvy = parseFloat(d["Direct Vis"].replace(",", ".")) * 10;
+        var ndvx = parseFloat(d["Direct Vis"]) * 75;
+        var ndvy = parseFloat(d["Direct Vis"]) * 10;
 
-        var nivx = parseFloat(d["Illus Vis"].replace(",", ".")) * 8.66;
-        var nivy = parseFloat(d["Illus Vis"].replace(",", ".")) * 124.9;
+        var nivx = parseFloat(d["Illus Vis"]) * 8.66;
+        var nivy = parseFloat(d["Illus Vis"]) * 124.9;
 
-        var nvax = parseFloat(d["Vis analysis"].replace(",", ".")) * 141.34;
-        var nvay = parseFloat(d["Vis analysis"].replace(",", ".")) * 124.9;
+        var nvax = parseFloat(d["Vis analysis"]) * 141.34;
+        var nvay = parseFloat(d["Vis analysis"]) * 124.9;
 
         d3.selectAll(".ccSelectSelected").classed("ccSelectSelected", false);
         d.Level.split(",").forEach(function(lev, i) {
@@ -1123,7 +1125,7 @@ var keywordsBubbleChart = function(data) {
     		})
     		.size([diameter, diameter])
     		.padding(1.5);
-    	
+
     	var svg = d3.select("#keywordsBubbleChart").append("svg")
     		.attr("width", diameter)
     		.attr("height", diameter);
@@ -1157,9 +1159,9 @@ var fillImageCollection = function(data) {
         if (row['Image Name'] !== '---') {
             var rowNum = 0;
 
-            var dv = row['Direct Vis'].replace(',', '.');
-            var va = row['Vis analysis'].replace(',', '.');
-            var iv = row['Illus Vis'].replace(',', '.');
+            var dv = row['Direct Vis'];//.replace(',', '.');
+            var va = row['Vis analysis'];//.replace(',', '.');
+            var iv = row['Illus Vis'];//.replace(',', '.');
 
             if ((dv >= va) && (dv >= iv))
                 rowNum = 1;
@@ -1216,7 +1218,8 @@ var fillImageCollection = function(data) {
 
 d3.text("papers.csv", function(data) {
     var columns = ['ID', 'Author', 'Title', 'Year'];
-    var dsv = d3.dsv(";", "text/plain");
+    //var dsv = d3.dsv(";", "text/plain"); //original
+    var dsv = d3.dsv(",", "text/plain");
     var parsedCSV = dsv.parse(data);
 
     parsedCSV.forEach(function(d) {
@@ -1232,9 +1235,9 @@ d3.text("papers.csv", function(data) {
 
             var coordinates = {
                 id: +d['ID'],
-                dv: Number(d['Direct Vis'].replace(',', '.')),
-                va: Number(d['Vis analysis'].replace(',', '.')),
-                iv: Number(d['Illus Vis'].replace(',', '.'))
+                dv: parseFloat(d['Exploration']),//.replace(',', '.')),
+                va: parseFloat(d['Analysis']),//.replace(',', '.')),
+                iv: parseFloat(d['Communication']),//.replace(',', '.'))
             };
 
             var strIndex = coordinates.dv + '_' + coordinates.va + '_' + coordinates.iv;
@@ -1286,9 +1289,9 @@ d3.text("papers.csv", function(data) {
                         levelData[0].count += 1 / levelCount;
                         var coordinates = {
                             id: +d['ID'],
-                            dv: Number(d['Direct Vis'].replace(',', '.')),
-                            va: Number(d['Vis analysis'].replace(',', '.')),
-                            iv: Number(d['Illus Vis'].replace(',', '.'))
+                            dv: Number(d['Exploration']),//.replace(',', '.')),
+                            va: Number(d['Analysis']),//.replace(',', '.')),
+                            iv: Number(d['Communication']),//.replace(',', '.'))
                         };
                         fillValue(e.trim(), coordinates);
 
@@ -1303,9 +1306,9 @@ d3.text("papers.csv", function(data) {
                         levelData[1].count += 1 / levelCount;
                         var coordinates = {
                             id: +d['ID'],
-                            dv: Number(d['Direct Vis'].replace(',', '.')),
-                            va: Number(d['Vis analysis'].replace(',', '.')),
-                            iv: Number(d['Illus Vis'].replace(',', '.'))
+                            dv: Number(d['Exploration']),//.replace(',', '.')),
+                            va: Number(d['Analysis']),//.replace(',', '.')),
+                            iv: Number(d['Communication']),//.replace(',', '.'))
                         };
                         fillValue(e.trim(), coordinates);
 
@@ -1320,9 +1323,9 @@ d3.text("papers.csv", function(data) {
                         levelData[2].count += 1 / levelCount;
                         var coordinates = {
                             id: +d['ID'],
-                            dv: Number(d['Direct Vis'].replace(',', '.')),
-                            va: Number(d['Vis analysis'].replace(',', '.')),
-                            iv: Number(d['Illus Vis'].replace(',', '.'))
+                            dv: Number(d['Exploration']),//.replace(',', '.')),
+                            va: Number(d['Analysis']),//.replace(',', '.')),
+                            iv: Number(d['Communication']),//.replace(',', '.'))
                         };
                         fillValue(e.trim(), coordinates);
 
@@ -1337,9 +1340,9 @@ d3.text("papers.csv", function(data) {
                         levelData[3].count += 1 / levelCount;
                         var coordinates = {
                             id: +d['ID'],
-                            dv: Number(d['Direct Vis'].replace(',', '.')),
-                            va: Number(d['Vis analysis'].replace(',', '.')),
-                            iv: Number(d['Illus Vis'].replace(',', '.'))
+                            dv: Number(d['Exploration']),//.replace(',', '.')),
+                            va: Number(d['Analysis']),//.replace(',', '.')),
+                            iv: Number(d['Communication'])//.replace(',', '.'))
                         };
                         fillValue(e.trim(), coordinates);
 
@@ -1354,10 +1357,10 @@ d3.text("papers.csv", function(data) {
                         levelData[4].count += 1 / levelCount;
                         var coordinates = {
                             id: +d['ID'],
-                            dv: Number(d['Direct Vis'].replace(',', '.')),
-                            va: Number(d['Vis analysis'].replace(',', '.')),
-                            iv: Number(d['Illus Vis'].replace(',', '.'))
-                        };
+                            dv: Number(d['Exploration']),//.replace(',', '.')),
+                            va: Number(d['Analysis']),//.replace(',', '.')),
+                            iv: Number(d['Communication'])//.replace(',', '.'))
+                        }
                         fillValue(e.trim(), coordinates);
 
                         var strIndex = coordinates.dv + '_' + coordinates.va + '_' + coordinates.iv;
@@ -1376,7 +1379,7 @@ d3.text("papers.csv", function(data) {
                         		iv:Number(d['Illus Vis'].replace(',', '.'))
                         	};
                         	fillValue(e.trim(), coordinates);
-                        	
+
                         	var strIndex = coordinates.dv + '_' + coordinates.va + '_' + coordinates.iv;
                         	if(typeof(trianglesBodyData[strIndex]) == "undefined")
                         	{
@@ -1436,6 +1439,6 @@ d3.text("papers.csv", function(data) {
     fillCategoryTriangles("Organ", trianglesOrganData);
     //fillCategoryTriangles("Body",      trianglesBodyData);
 
-    keywordsBubbleChart(parsedCSV);
+    //keywordsBubbleChart(parsedCSV);
     fillImageCollection(parsedCSV);
 })

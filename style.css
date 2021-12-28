@@ -1,4 +1,4 @@
-/* 
+/*
 Color palettes generated from:
 https://coolors.co/ffbe0b-fb5607-ff006e-8338ec-3a86ff
 https://paletton.com/#uid=13-0u0k7Gq61NHw4suQbkm1eKhR
@@ -12,10 +12,13 @@ https://www.schemecolor.com/sample?getcolor=708090
     --tint-2: #8D99A6;
     --selected: #B4BCC3;
     --hover: #D2D7DB;
+    --colorExplore: #ffbe0b;
+    --colorComm: #ff006e;
+    --colorAnalyze: #3a86ff;
     /*  */
     /* --selected: #C19CF6;  #BEC3C9; old version */
     /* --hover: #E6D7FB;  #F6E8D4; old version */
-    /*--highlight: #EB8; 
+    /*--highlight: #EB8;
     --lowlight: #B74;  */
 }
 
@@ -277,7 +280,7 @@ circle.ccSelectSelected {
 }
 
 .triangleHeader {
-    /* background: var(--tint-2); 
+    /* background: var(--tint-2);
     border-left: 1px solid var(--secondary);
     border-right: 1px solid var(--secondary);
     border-top: 1px solid var(--secondary);*/
@@ -414,4 +417,25 @@ div#paperText {
 div#paperImage {
     /* float: right; */
     flex: 1;
+}
+
+.color-thumb {
+    float: left;
+    height: 20px;
+    width: 20px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    clear: both;
+}
+
+.explore {
+    background-color: var(--colorExplore);
+}
+
+.comm {
+    background-color: var(--colorComm);
+}
+
+.analyze {
+    background-color: var(--colorAnalyze);
 }
