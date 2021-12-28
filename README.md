@@ -1,9 +1,9 @@
 # Towards the Visualization of Physiological Processes:<br/>A State-of-the-Art Report
 ## Supplementary Materials
 
-![Screenshot of navigation interface for literature collected and categorized to date for Physiology Visualization State-of-the-Art Report](preview.png)
+![Screenshot of navigation interface for literature collected and categorized to date for Physiology Visualization State-of-the-Art Report](resource/preview.png)
 
-Explore the space of physiology visualization literature (current number: *155* articles), organized according to spatio-temporal scale and visualization approach, here: [https://lauragarrison87.github.io/star.web/](https://lauragarrison87.github.io/star.web/)
+Explore the space of physiology visualization literature (current number: *155* articles), organized according to spatio-temporal scale and visualization approach, here: [https://lauragarrison87.github.io/star.web/vis_tool](https://lauragarrison87.github.io/star.web/vis_tool)
 
 _Note: This is a work in progress!_ 
 
@@ -13,7 +13,7 @@ Physiology describes the fundamental science of life and its deepest workings. W
 
 ### Additional materials 
 
-- [Database of categorized literature to date (work in progress)](Physio_STAR_papers_10102021.xlsx)
+- [Database of categorized literature to date (work in progress)](resource/Physio_STAR_papers_15102021.pdf)
 - Short Biography of authors:
     - *Laura Garrison* is a PhD student in the Dept. of Informatics at the Univ. of Bergen, Norway. Her thesis centers on the visualization of physiological processes for communication, exploration, and analysis. She is a board-certified medical illustrator with extensive experience in the medical education technology start-up space as an illustrator, designer, and content director. 
     - *Ivan Kolesar* received his PhD from the Dept. of Informatics at the Univ. of Bergen, Norway, where his research interests include molecular visualization, the visualization of structural phenomena, and physiology visualization. He now is a software engineer for Rainfall AS, a technology company in Bergen. 

@@ -1216,7 +1216,7 @@ var fillImageCollection = function(data) {
     });
 }
 
-d3.text("papers.csv", function(data) {
+d3.text("data/papers.csv", function(data) {
     var columns = ['ID', 'Author', 'Title', 'Year'];
     //var dsv = d3.dsv(";", "text/plain"); //original
     var dsv = d3.dsv(",", "text/plain");
