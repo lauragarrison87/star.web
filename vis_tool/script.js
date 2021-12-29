@@ -864,6 +864,7 @@ var scaleHeatMap = function(data) {
 }
 
 var fillCategoryTriangles = function(level, dataObject) {
+    //TODO reorient positions of circles/where categories go to match McCloud's Triangle
     var maxCount = 0;
     var circleCount = 0;
     var dataArray = new Array();
@@ -906,7 +907,7 @@ var fillCategoryTriangles = function(level, dataObject) {
         .style('fill', colorDV); //#C96
     circleDV
         .append('text')
-        .text('DV')
+        .text('Ex')
         .attr("x", -9)
         .attr("y", -1)
         .style('fill', 'white');
@@ -922,7 +923,7 @@ var fillCategoryTriangles = function(level, dataObject) {
         .style('fill', colorIV); //#C96
     circleIV
         .append('text')
-        .text('IV')
+        .text('Com')
         .attr("x", -15)
         .attr("y", 5)
         .style('fill', 'white');
