@@ -3,7 +3,7 @@ var triangleSize = 200;
 var triangleHeight = triangleSize * (Math.sqrt(3) / 2);
 
 var trianglesMoleculeData = []
-var trianglesOrganelleData = []
+//var trianglesOrganelleData = []
 var trianglesCellData = []
 var trianglesTissueData = []
 var trianglesOrganData = []
@@ -29,7 +29,7 @@ var groupTriangles = [
     {
         points: triangleSize / 2 + ' ' + 0 + ', ' + triangleSize / 4 + ' ' + triangleHeight / 2 + ', ' + triangleSize / 2 + ' ' + 2 * triangleHeight / 3 + ', ' + triangleSize / 2 + ' ' + 0,
         valueMolecule: 0,
-        valueOrganelle: 0,
+        // valueOrganelle: 0,
         valueCell: 0,
         valueTissue: 0,
         valueOrgan: 0
@@ -40,7 +40,7 @@ var groupTriangles = [
     {
         points: triangleSize / 2 + ' ' + 0 + ', ' + triangleSize / 2 + ' ' + 2 * triangleHeight / 3 + ', ' + 3 * triangleSize / 4 + ' ' + triangleHeight / 2 + ', ' + triangleSize / 2 + ' ' + 0,
         valueMolecule: 0,
-        valueOrganelle: 0,
+        // valueOrganelle: 0,
         valueCell: 0,
         valueTissue: 0,
         valueOrgan: 0
@@ -51,7 +51,7 @@ var groupTriangles = [
     {
         points: 0 + ' ' + triangleHeight + ', ' + triangleSize / 2 + ' ' + 2 * triangleHeight / 3 + ', ' + triangleSize / 4 + ' ' + triangleHeight / 2 + ', ' + 0 + ' ' + triangleHeight,
         valueMolecule: 0,
-        valueOrganelle: 0,
+        // valueOrganelle: 0,
         valueCell: 0,
         valueTissue: 0,
         valueOrgan: 0
@@ -62,7 +62,7 @@ var groupTriangles = [
     {
         points: 0 + ' ' + triangleHeight + ', ' + triangleSize / 2 + ' ' + triangleHeight + ', ' + triangleSize / 2 + ' ' + 2 * triangleHeight / 3 + ', ' + 0 + ' ' + triangleHeight,
         valueMolecule: 0,
-        valueOrganelle: 0,
+        // valueOrganelle: 0,
         valueCell: 0,
         valueTissue: 0,
         valueOrgan: 0
@@ -73,7 +73,7 @@ var groupTriangles = [
     {
         points: triangleSize / 2 + ' ' + triangleHeight + ', ' + triangleSize + ' ' + triangleHeight + ', ' + triangleSize / 2 + ' ' + 2 * triangleHeight / 3 + ', ' + triangleSize / 2 + ' ' + triangleHeight,
         valueMolecule: 0,
-        valueOrganelle: 0,
+        // valueOrganelle: 0,
         valueCell: 0,
         valueTissue: 0,
         valueOrgan: 0
@@ -84,7 +84,7 @@ var groupTriangles = [
     {
         points: triangleSize / 2 + ' ' + 2 * triangleHeight / 3 + ', ' + triangleSize + ' ' + triangleHeight + ', ' + 3 * triangleSize / 4 + ' ' + triangleHeight / 2 + ', ' + triangleSize / 2 + ' ' + 2 * triangleHeight / 3,
         valueMolecule: 0,
-        valueOrganelle: 0,
+        // valueOrganelle: 0,
         valueCell: 0,
         valueTissue: 0,
         valueOrgan: 0
@@ -95,7 +95,7 @@ var groupTriangles = [
 
 var groupTrianglesCount = {
     Molecule: 0,
-    Organelle: 0,
+    // Organelle: 0,
     Cell: 0,
     Tissue: 0,
     Organ: 0
@@ -514,7 +514,7 @@ var tabulate = function(data, columns) {
             // select levels
             if (d.Level == "All") {
                 d3.select("#Moleculebar").classed("bar_hover", true);
-                d3.select("#Organellebar").classed("bar_hover", true);
+                // d3.select("#Organellebar").classed("bar_hover", true);
                 d3.select("#Cellbar").classed("bar_hover", true);
                 d3.select("#Tissuebar").classed("bar_hover", true);
                 d3.select("#Organbar").classed("bar_hover", true);
@@ -543,14 +543,14 @@ var tabulate = function(data, columns) {
             }
 
             // select categoryCircle
-            var ndvx = parseFloat(d["Direct Vis"]) * 75;
-            var ndvy = parseFloat(d["Direct Vis"]) * 10;
+            var ndvx = parseFloat(d["Exploration"]) * 75;
+            var ndvy = parseFloat(d["Exploration"]) * 10;
 
-            var nivx = parseFloat(d["Illus Vis"]) * 8.66;
-            var nivy = parseFloat(d["Illus Vis"]) * 124.9;
+            var nivx = parseFloat(d["Communication"]) * 8.66;
+            var nivy = parseFloat(d["Communication"]) * 124.9;
 
-            var nvax = parseFloat(d["Vis analysis"]) * 141.34;
-            var nvay = parseFloat(d["Vis analysis"]) * 124.9;
+            var nvax = parseFloat(d["Analysis"]) * 141.34;
+            var nvay = parseFloat(d["Analysis"]) * 124.9;
 
             d.Level.split(",").forEach(function(lev, i) {
                 d3.select("#" + lev.trim() + "CcCover")
@@ -567,7 +567,7 @@ var tabulate = function(data, columns) {
         // deselect levels
         if (d.Level == "All") {
             d3.select("#Moleculebar").classed("bar_hover", false);
-            d3.select("#Organellebar").classed("bar_hover", false);
+            // d3.select("#Organellebar").classed("bar_hover", false);
             d3.select("#Cellbar").classed("bar_hover", false);
             d3.select("#Tissuebar").classed("bar_hover", false);
             d3.select("#Organbar").classed("bar_hover", false);
@@ -599,14 +599,14 @@ var tabulate = function(data, columns) {
         d3.selectAll(".bar_selected").classed("bar_selected", false);
         if (d.Level == "All") {
             d3.select("#Moleculebar").classed("bar_hover", false);
-            d3.select("#Organellebar").classed("bar_hover", false);
+            // d3.select("#Organellebar").classed("bar_hover", false);
             d3.select("#Cellbar").classed("bar_hover", false);
             d3.select("#Tissuebar").classed("bar_hover", false);
             d3.select("#Organbar").classed("bar_hover", false);
             //d3.select("#Bodybar").classed("bar_hover", false);
 
             d3.select("#Moleculebar").classed("bar_selected", true);
-            d3.select("#Organellebar").classed("bar_selected", true);
+            // d3.select("#Organellebar").classed("bar_selected", true);
             d3.select("#Cellbar").classed("bar_selected", true);
             d3.select("#Tissuebar").classed("bar_selected", true);
             d3.select("#Organbar").classed("bar_selected", true);
@@ -635,14 +635,14 @@ var tabulate = function(data, columns) {
         }
 
         // select categoryCircle
-        var ndvx = parseFloat(d["Direct Vis"]) * 75;
-        var ndvy = parseFloat(d["Direct Vis"]) * 10;
+        var ndvx = parseFloat(d["Exploration"]) * 75;
+        var ndvy = parseFloat(d["Exploration"]) * 10;
 
-        var nivx = parseFloat(d["Illus Vis"]) * 8.66;
-        var nivy = parseFloat(d["Illus Vis"]) * 124.9;
+        var nivx = parseFloat(d["Communication"]) * 8.66;
+        var nivy = parseFloat(d["Communication"]) * 124.9;
 
-        var nvax = parseFloat(d["Vis analysis"]) * 141.34;
-        var nvay = parseFloat(d["Vis analysis"]) * 124.9;
+        var nvax = parseFloat(d["Analysis"]) * 141.34;
+        var nvay = parseFloat(d["Analysis"]) * 124.9;
 
         d3.selectAll(".ccSelectSelected").classed("ccSelectSelected", false);
         d.Level.split(",").forEach(function(lev, i) {
@@ -654,7 +654,7 @@ var tabulate = function(data, columns) {
 
         // update paper content
         d3.select("#paperHeaderInfo h1").html(d["Title"]);
-        d3.select("#paperHeaderInfo p").html(d["Bibtex Authors"]);
+        d3.select("#paperHeaderInfo p").html(d["Bibtex Authors"] + "</b><br/>" + "DOI: " + d["DOI"]);
 
         d3.select("#paperText p").html("<b>Abstract:</b><br/>" + d["Abstract"]);
         d3.select("#paperImage img").attr("src", "images/" + d["Image Name"]);
@@ -1228,7 +1228,7 @@ d3.text("data/papers.csv", function(data) {
         //for levels & triangles
         if (d['Level'] == "All" && d['Purpose test'] == '1') {
             levelData[0].count += 1 / 6;
-            levelData[1].count += 1 / 6;
+            // levelData[1].count += 1 / 6;
             levelData[2].count += 1 / 6;
             levelData[3].count += 1 / 6;
             levelData[4].count += 1 / 6;
@@ -1250,10 +1250,10 @@ d3.text("data/papers.csv", function(data) {
             trianglesMoleculeData[strIndex].push(coordinates);
 
             // ORGANELLES
-            if (typeof(trianglesOrganelleData[strIndex]) == "undefined") {
-                trianglesOrganelleData[strIndex] = new Array();
-            }
-            trianglesOrganelleData[strIndex].push(coordinates);
+            // if (typeof(trianglesOrganelleData[strIndex]) == "undefined") {
+            //     trianglesOrganelleData[strIndex] = new Array();
+            // }
+            // trianglesOrganelleData[strIndex].push(coordinates);
 
             // CELL
             if (typeof(trianglesCellData[strIndex]) == "undefined") {
@@ -1303,22 +1303,22 @@ d3.text("data/papers.csv", function(data) {
                         trianglesMoleculeData[strIndex].push(coordinates);
                         break;
 
-                    case "Organelle":
-                        levelData[1].count += 1 / levelCount;
-                        var coordinates = {
-                            id: +d['ID'],
-                            dv: Number(d['Exploration']),//.replace(',', '.')),
-                            va: Number(d['Analysis']),//.replace(',', '.')),
-                            iv: Number(d['Communication']),//.replace(',', '.'))
-                        };
-                        fillValue(e.trim(), coordinates);
-
-                        var strIndex = coordinates.dv + '_' + coordinates.va + '_' + coordinates.iv;
-                        if (typeof(trianglesOrganelleData[strIndex]) == "undefined") {
-                            trianglesOrganelleData[strIndex] = new Array();
-                        }
-                        trianglesOrganelleData[strIndex].push(coordinates);
-                        break;
+                    // case "Organelle":
+                    //     levelData[1].count += 1 / levelCount;
+                    //     var coordinates = {
+                    //         id: +d['ID'],
+                    //         dv: Number(d['Exploration']),//.replace(',', '.')),
+                    //         va: Number(d['Analysis']),//.replace(',', '.')),
+                    //         iv: Number(d['Communication']),//.replace(',', '.'))
+                    //     };
+                    //     fillValue(e.trim(), coordinates);
+                    //
+                    //     var strIndex = coordinates.dv + '_' + coordinates.va + '_' + coordinates.iv;
+                    //     if (typeof(trianglesOrganelleData[strIndex]) == "undefined") {
+                    //         trianglesOrganelleData[strIndex] = new Array();
+                    //     }
+                    //     trianglesOrganelleData[strIndex].push(coordinates);
+                    //     break;
 
                     case "Cell":
                         levelData[2].count += 1 / levelCount;
@@ -1434,7 +1434,7 @@ d3.text("data/papers.csv", function(data) {
     scaleHeatMap(parsedCSV);
 
     fillCategoryTriangles("Molecule", trianglesMoleculeData);
-    fillCategoryTriangles("Organelle", trianglesOrganelleData);
+    // fillCategoryTriangles("Organelle", trianglesOrganelleData);
     fillCategoryTriangles("Cell", trianglesCellData);
     fillCategoryTriangles("Tissue", trianglesTissueData);
     fillCategoryTriangles("Organ", trianglesOrganData);
