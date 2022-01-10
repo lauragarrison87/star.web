@@ -13,8 +13,8 @@ var keywordsObject = {}
 
 // COLORS
 var colorDV = "#ffbe0b";
-var colorIV = "#ff006e";
-var colorVA = "#3a86ff";
+var colorVA = "#ff006e";
+var colorIV = "#3a86ff";
 var primary = "#697887";
 var secondary = "#35495C";
 var hover = "#D2D7DB";
