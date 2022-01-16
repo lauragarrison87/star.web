@@ -457,7 +457,7 @@ var heatData = [
 
 var levelData = [
     { name: "Molecule", count: 0 },
-    { name: "Organelle", count: 0 },
+    // { name: "Organelle", count: 0 },
     { name: "Cell", count: 0 },
     { name: "Tissue", count: 0 },
     { name: "Organ", count: 0 }
@@ -1181,9 +1181,9 @@ var fillImageCollection = function(data) {
                         selectedCell = selectedRow.select('td:nth-child(2)');
                         break;
 
-                    case "Organelle":
-                        selectedCell = selectedRow.select('td:nth-child(3)');
-                        break;
+                    // case "Organelle":
+                    //     selectedCell = selectedRow.select('td:nth-child(3)');
+                    //     break;
 
                     case "Cell":
                         selectedCell = selectedRow.select('td:nth-child(4)');
@@ -1321,7 +1321,7 @@ d3.text("data/papers.csv", function(data) {
                     //     break;
 
                     case "Cell":
-                        levelData[2].count += 1 / levelCount;
+                        levelData[1].count += 1 / levelCount;
                         var coordinates = {
                             id: +d['ID'],
                             dv: Number(d['Exploration']),//.replace(',', '.')),
@@ -1338,7 +1338,7 @@ d3.text("data/papers.csv", function(data) {
                         break;
 
                     case "Tissue":
-                        levelData[3].count += 1 / levelCount;
+                        levelData[2].count += 1 / levelCount;
                         var coordinates = {
                             id: +d['ID'],
                             dv: Number(d['Exploration']),//.replace(',', '.')),
@@ -1355,7 +1355,7 @@ d3.text("data/papers.csv", function(data) {
                         break;
 
                     case "Organ":
-                        levelData[4].count += 1 / levelCount;
+                        levelData[3].count += 1 / levelCount;
                         var coordinates = {
                             id: +d['ID'],
                             dv: Number(d['Exploration']),//.replace(',', '.')),
