@@ -654,7 +654,11 @@ var tabulate = function(data, columns) {
 
         // update paper content
         d3.select("#paperHeaderInfo h1").html(d["Title"]);
-        d3.select("#paperHeaderInfo p").html(d["Bibtex Authors"] + "</b><br/>" + "DOI: " + d["DOI"]);
+        d3.select("#paperHeaderInfo p").html(
+            d["Bibtex Authors"] +
+            "</b><br/>" +
+            "DOI: " + d["DOI"]
+        );
 
         d3.select("#paperText p").html("<b>Abstract:</b><br/>" + d["Abstract"]);
         d3.select("#paperImage img").attr("src", "images/" + d["Image Name"]);
