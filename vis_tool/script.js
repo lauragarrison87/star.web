@@ -543,14 +543,14 @@ var tabulate = function(data, columns) {
             }
 
             // select categoryCircle
-            var ndvx = parseFloat(d["Exploration"]) * 75;
+            var ndvx = parseFloat(d["Exploration"]) * 100;
             var ndvy = parseFloat(d["Exploration"]) * 10;
 
             var nivx = parseFloat(d["Communication"]) * 8.66;
-            var nivy = parseFloat(d["Communication"]) * 124.9;
+            var nivy = parseFloat(d["Communication"]) * 168.20;
 
-            var nvax = parseFloat(d["Analysis"]) * 141.34;
-            var nvay = parseFloat(d["Analysis"]) * 124.9;
+            var nvax = parseFloat(d["Analysis"]) * 191.34;
+            var nvay = parseFloat(d["Analysis"]) * 168.20;
 
             d.Level.split(",").forEach(function(lev, i) {
                 d3.select("#" + lev.trim() + "CcCover")
@@ -635,14 +635,14 @@ var tabulate = function(data, columns) {
         }
 
         // select categoryCircle
-        var ndvx = parseFloat(d["Exploration"]) * 75;
+        var ndvx = parseFloat(d["Exploration"]) * 100;
         var ndvy = parseFloat(d["Exploration"]) * 10;
 
         var nivx = parseFloat(d["Communication"]) * 8.66;
-        var nivy = parseFloat(d["Communication"]) * 124.9;
+        var nivy = parseFloat(d["Communication"]) * 168.20;
 
-        var nvax = parseFloat(d["Analysis"]) * 141.34;
-        var nvay = parseFloat(d["Analysis"]) * 124.9;
+        var nvax = parseFloat(d["Analysis"]) * 191.34;
+        var nvay = parseFloat(d["Analysis"]) * 168.20;
 
         d3.selectAll(".ccSelectSelected").classed("ccSelectSelected", false);
         d.Level.split(",").forEach(function(lev, i) {
@@ -1029,16 +1029,16 @@ var fillCategoryTriangles = function(level, dataObject) {
         .attr("cy", 0)
         .attr("r", 8)
         .style('stroke', 'black')
-        .style('fill', 'rgba(204, 153, 102, 0.9)')
+        .style('fill', 'rgba(180, 188, 195, 0.9)')
 
     circleGroup.append("circle")
         .attr("id", level + "CcCover")
         .attr("class", "ccHidden")
         .attr("cx", 0)
         .attr("cy", 0)
-        .attr("r", 5)
+        .attr("r", 10)
         .style('stroke', 'black')
-        .style('fill', 'rgba(232, 192, 154, 0.9)')
+        .style('fill', 'rgba(210, 215, 219, 0.9)')
 
     var circleLegend = svg.append('g').attr('class', 'circleLegend');
     var legendItemsCount = maxCount > 5 ? 5 : maxCount + 1;
