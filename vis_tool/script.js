@@ -657,7 +657,7 @@ var tabulate = function(data, columns) {
         d3.select("#paperHeaderInfo p").html(
             d["Bibtex Authors"] +
             "</b><br/>" +
-            "DOI: " + d["DOI"]
+            "DOI: <a href='https://dx.doi.org/"+d["DOI"]+"' target='_blank'>"+d["DOI"]+"</a>"
         );
 
         d3.select("#paperText p").html("<b>Abstract:</b><br/>" + d["Abstract"]);
