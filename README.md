@@ -1,27 +1,20 @@
-# Towards the Visualization of Physiological Processes:<br/>A State-of-the-Art Report
+# Opportunities in Visualization for Physiology: A Multiscale Overview
 ## Supplementary Materials
 
 ![Screenshot of navigation interface for literature collected and categorized to date for Physiology Visualization State-of-the-Art Report](resource/preview.png)
 
-Explore the space of physiology visualization literature (current number: *155* articles), organized according to spatio-temporal scale and visualization approach, here: [https://lauragarrison87.github.io/star.web/vis_tool](https://lauragarrison87.github.io/star.web/vis_tool)
-
-_Note: This is a work in progress!_ 
+Explore the literature we have collected that provides a multiscale overview of visualization for physiology. Related surveys are included in the table, with an S as the first part of the ID._Note: This work is currently under submission_ 
 
 
 _Abstract_:
-Physiology describes the fundamental science of life and its deepest workings. We see the underpinnings of human physiology cross-cutting all major scientific areas including medicine, biology, chemistry, and physics. With this state-of-the-art report we provide a broad overview and taxonomy of modern methods used for the visualization of physiological processes. We frame our taxonomy in two layers: the first layer organizes methods according to a spatiotemporal axis that is discretized by scale: molecule, organelle, cell, tissue, and organ scale. A subsequent layer further categorizes these methods according to the visualization approach that accommodates the task they serve: direct visualization, visual analysis and illustrative visualization. This categorization implicitly considers then whether the visualization depicts raw, derived, or abstracted data. Through this taxonomy one may quickly identify the extent (or absence) of visualization efforts to date at each scale for each of the three primary visualization techniques. We conclude our report with an outlook on promising new avenues of research in our efforts to visualize physiological processes.
+Human physiology is a complex, multi-faceted science that combines elements of biology, chemistry, physics, and medicine. In this report we offer a broad and multiscale perspective on key developments and highlight key challenges in visualization for physiology. Our literature search process combines standard methods with state-of-the-art visual analysis search tools to identify surveys and representative individual methods or tools papers using visualization for physiology. Our resulting literature taxonomy sorts literature first according to level of biological organization, ranging from molecule to organ. A second layer identifies high-level visualization tasks within each piece of literature: exploration, analysis, and communication. The results of this report may be used for visualization researchers to understand the overarching trends, challenges, and opportunities in visualization for physiology and to provide a foundation for discussion and future research directions in this area.
 
 ### Additional materials 
 
-- [Database of categorized literature to date (work in progress)](resource/Physio_STAR_papers_15102021.pdf)
+- [Database of categorized literature to date (work in progress)]()
 - Short Biography of authors:
     - *Laura Garrison* is a PhD student in the Dept. of Informatics at the Univ. of Bergen, Norway. Her thesis centers on the visualization of physiological processes for communication, exploration, and analysis. She is a board-certified medical illustrator with extensive experience in the medical education technology start-up space as an illustrator, designer, and content director. 
     - *Ivan Kolesar* received his PhD from the Dept. of Informatics at the Univ. of Bergen, Norway, where his research interests include molecular visualization, the visualization of structural phenomena, and physiology visualization. He now is a software engineer for Rainfall AS, a technology company in Bergen. 
     - *Ivan Viola* is a professor in the Dept. of Computer, Electrical and Mathematical Science and Engineering of King Abdullah University of Science and Technology in Saudi Arabia and an associate professor in the Dept. of Computer Graphics at TU Wien, Austria. His research is focusing on effective visualization methods that are well understandable by humans, in the context of several application domains, notably computational biology.
     - *Helwig Hauser* is a professor in visualization at the Dept. of Informatics at the Univ. of Bergen, Norway with over 20 years of experience in researching and teaching visualization. He co-leads the VIDI (Visual Data Science for Large Scale Imaging Biomarker Discovery) project with Stefan Bruckner, and previous led a research project on the illustration of physiology (PhysioIllustration). He has extensive experience with writing state-of-the-art reports. 
     - *Stefan Bruckner* is a professor in visualization at the Dept. of Informatics at the Univ. of Bergen, Norway. His research interests include the visualization of biomedical data with respect to structural and functional aspects, in particular also using illustrative methods. He co-leads the VIDI project alongside Helwig Hauser.  
-- Keywords for initial literature search criteria:
-    - *Visual*: visualization, visual, visual abstraction
-    - *Visualization task*: communicate, explore, analyze, present
-    - *Scale/structure*: gene coexpression, gene interaction, molecular, molecule, structural biology, organelle, subcellular, cell, cellular, tissue, organ, heart, cardiac, brain, neurological, blood, multi-scale, multiscale
-    - *Temporal/physiological*: dynamic(s), interaction(s), pathway, reactivity, process(es), life cycle, division, signal(ing), apoptosis, repair, contraction, activity, respiration, movement, connectivity, flow 
