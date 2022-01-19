@@ -911,8 +911,8 @@ var fillCategoryTriangles = function(level, dataObject) {
         .style('fill', colorDV); //#C96
     circleDV
         .append('text')
-        .text('Ex')
-        .attr("x", -9)
+        .text('E')
+        .attr("x", -4)
         .attr("y", -1)
         .style('fill', 'white');
 
@@ -927,7 +927,7 @@ var fillCategoryTriangles = function(level, dataObject) {
         .style('fill', colorIV); //#C96
     circleIV
         .append('text')
-        .text('Com')
+        .text('C')
         .attr("x", -15)
         .attr("y", 5)
         .style('fill', 'white');
@@ -943,7 +943,7 @@ var fillCategoryTriangles = function(level, dataObject) {
         .style('fill', colorVA); //#C96
     circleVA
         .append('text')
-        .text('VA')
+        .text('A')
         .attr("x", 0)
         .attr("y", 5)
         .style('fill', 'white');
