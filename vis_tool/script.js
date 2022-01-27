@@ -735,10 +735,11 @@ var levelChart = function(data) {
         });
 
     bar.append("text")
-        .attr("x", 25)
+        .attr("x", 45)
         .attr("y", -5)
         .attr("class", "axis")
-        .text(function(level) { return level.count.toFixed(2); });
+        .text(function(level) { return level.count.toFixed(0); });
+        //.text(function(level) { return level.count.toFixed(2); });
 
 }
 
