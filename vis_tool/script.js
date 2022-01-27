@@ -589,7 +589,6 @@ var tabulate = function(data, columns) {
     })
 
     .on("click", function(d) {
-        console.log(d);
         d3.select(this).classed("row_hover", false);
 
         d3.select(".row_selected").classed("row_selected", false);
@@ -894,7 +893,7 @@ var scaleHeatMap = function(data) {
         .attr("y", legendElementSize)
 }
 
-var fillCategoryTriangles = function(level, dataObject) {
+var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend) {
     var maxCount = 0;
     var circleCount = 0;
     var dataArray = new Array();
@@ -910,7 +909,7 @@ var fillCategoryTriangles = function(level, dataObject) {
     var margin = { top: 15, right: 15, bottom: 15, left: 15 };
     var width = 250 - margin.left - margin.right;
     var height = 230 - margin.top - margin.bottom;
-    var circleSize = 5;
+    var circleSize = 8;
     var triangleOffset = 10;
     var triangleOffsetCoord = triangleOffset / Math.sqrt(2);
 
@@ -1018,7 +1017,7 @@ var fillCategoryTriangles = function(level, dataObject) {
         .attr('r', circleSize)
         .style('stroke', 'black')
         .style('fill', function(moleculeGroup) {
-            var newColor = 255 - Math.round(255 * (moleculeGroup.length / maxCount));
+            var newColor = 255 - Math.round(255 * (moleculeGroup.length / allMaxCount));
             return 'rgb(' + newColor + ', ' + newColor + ', ' + newColor + ')';
         })
         .on("mouseover", function(d) {
@@ -1066,28 +1065,30 @@ var fillCategoryTriangles = function(level, dataObject) {
         .style('stroke', 'black')
         .style('fill', 'rgba(210, 215, 219, 0.9)')
 
-    var circleLegend = svg.append('g').attr('class', 'circleLegend');
-    var legendItemsCount = maxCount > 5 ? 5 : maxCount + 1;
-    for (var i = 0; i < legendItemsCount; i++) {
-        var legendValue = Math.round(i * (maxCount / (legendItemsCount - 1)));
-        var circleLegendNode = circleLegend.append('g')
-            .attr('class', 'circleLegend' + i)
-            .attr('transform', 'translate(' + 0 + ', ' + i * 17 + ')');
-
-        circleLegendNode.append('circle')
-            .attr('cx', 0)
-            .attr('cy', 0)
-            .attr('r', circleSize)
-            .style('stroke', 'black')
-            .style('fill', function(x) {
-                var newColor = 255 - Math.round(255 * (legendValue / maxCount));
-                return 'rgb(' + newColor + ', ' + newColor + ', ' + newColor + ')';
-            })
-
-        circleLegendNode.append('text')
-            .text(legendValue)
-            .attr("x", 15)
-            .attr("y", 4);
+    if(showLegend) {
+        var circleLegend = svg.append('g').attr('class', 'circleLegend');
+        var legendItemsCount = allMaxCount > 5 ? 5 : allMaxCount + 1;
+        for (var i = 0; i < legendItemsCount; i++) {
+            var legendValue = Math.round(i * (allMaxCount / (legendItemsCount - 1)));
+            var circleLegendNode = circleLegend.append('g')
+                .attr('class', 'circleLegend' + i)
+                .attr('transform', 'translate(' + 0 + ', ' + i * 17 + ')');
+    
+            circleLegendNode.append('circle')
+                .attr('cx', 0)
+                .attr('cy', 0)
+                .attr('r', circleSize)
+                .style('stroke', 'black')
+                .style('fill', function(x) {
+                    var newColor = 255 - Math.round(255 * (legendValue / allMaxCount));
+                    return 'rgb(' + newColor + ', ' + newColor + ', ' + newColor + ')';
+                })
+    
+            circleLegendNode.append('text')
+                .text(legendValue)
+                .attr("x", 15)
+                .attr("y", 4);
+        }
     }
 }
 
@@ -1254,7 +1255,6 @@ d3.text("data/papers.csv", function(data) {
     var parsedCSV = dsv.parse(data);
 
     parsedCSV.forEach(function(d) {
-        console.log(d);
         //for levels & triangles
         if (d['Level'] == "All" && d['Purpose test'] == '1') {
             levelData[0].count += 1 / 6;
@@ -1463,12 +1463,19 @@ d3.text("data/papers.csv", function(data) {
     levelChart(parsedCSV);
     scaleHeatMap(parsedCSV);
 
-    fillCategoryTriangles("Molecule", trianglesMoleculeData);
-    // fillCategoryTriangles("Organelle", trianglesOrganelleData);
-    fillCategoryTriangles("Cell", trianglesCellData);
-    fillCategoryTriangles("Tissue", trianglesTissueData);
-    fillCategoryTriangles("Organ", trianglesOrganData);
-    //fillCategoryTriangles("Body",      trianglesBodyData);
+    var maxCount = 0;
+    var allData = [trianglesMoleculeData, trianglesCellData, trianglesTissueData, trianglesOrganData]
+    for (var data in allData){
+        for (var name in allData[data]) {
+            if (allData[data][name].length > maxCount)
+                maxCount = allData[data][name].length;
+        }
+    }
+
+    fillCategoryTriangles("Molecule", trianglesMoleculeData, maxCount, true);
+    fillCategoryTriangles("Cell", trianglesCellData, maxCount, false);
+    fillCategoryTriangles("Tissue", trianglesTissueData, maxCount, false);
+    fillCategoryTriangles("Organ", trianglesOrganData, maxCount, false);
 
     //keywordsBubbleChart(parsedCSV);
     fillImageCollection(parsedCSV);
