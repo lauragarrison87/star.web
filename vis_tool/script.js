@@ -748,7 +748,7 @@ var scaleHeatMap = function(data) {
 
     var margin = { top: 20, right: 40, bottom: 80, left: 40 };
     var width = 560 - margin.left - margin.right;
-    var height = 320 - margin.top - margin.bottom;
+    var height = 280 - margin.top - margin.bottom;
     var gridSize = Math.floor(width / temporalScaleLegend.length);
     var heatMax = d3.max(heatData, function(d) { return d.value; });
 
@@ -769,7 +769,7 @@ var scaleHeatMap = function(data) {
         .attr('class', 'spatialLabel mono axis axis-workweek');
 
     svg.append('text')
-        .text('spatial scale')
+        .text('Spatial scale')
         .attr('x', 0)
         .attr('y', 0)
         .style('text-anchor', 'end')
@@ -787,9 +787,9 @@ var scaleHeatMap = function(data) {
         .attr('class', 'temporalLabel mono axis axis-worktime');
 
     svg.append('text')
-        .text('temporal scale')
+        .text('Temporal scale')
         .attr('x', 300)
-        .attr('y', 290)
+        .attr('y', 250)
         .style('text-anchor', 'end')
         .attr('transform', 'translate(' + gridSize / 2 + ', -6)')
         .attr('class', 'spatialLabel mono axis axis-workweek');
@@ -842,34 +842,81 @@ var scaleHeatMap = function(data) {
     var legend = svg.append("g")
         .attr("class", "legend");
 
-    var legendCount = 20;
+    var legendCount = 1; //20
     var legendElementSize = gridSize * spatialScaleLegend.length / legendCount;
 
-    for (var i = 0; i < legendCount; i++) {
-        legend.append("rect")
-            .attr("x", width + 0.5 * gridSize)
-            .attr("y", function(d) { return legendElementSize * (legendCount - i - 1); })
-            .attr("rx", 4)
-            .attr("ry", 4)
-            .attr("width", legendElementSize)
-            .attr("height", legendElementSize)
-            .attr('class', 'bordered')
-            .style("fill", function(d) {
-                var colorValue = 255 - Math.floor((6 / 5 - 6 / (5 + 25 * (i / (legendCount - 1)))) * 255);
-                return 'rgb(' + colorValue + ', ' + colorValue + ', ' + colorValue + ')';
-            });
-    }
-    for (var i = 0; i < 2; i++) {
-        legend.append("text")
-            .attr("class", "mono")
-            .text(function(d) { return Math.round(i * heatMax ); })
-            .attr("x", width + 1.25 * gridSize)
-            .attr("y", function(d) { return (legendCount - 1) * legendElementSize * (1 - i) + 10; } );
-    }
+    //legend custom gradient from https://www.visualcinnamon.com/2016/05/smooth-color-legend-d3-svg-gradient/
+    //Append a defs (for definition) element to your SVG
+    var defs = svg.append("defs");
+
+    //Append a linearGradient element to the defs and give it a unique id
+    var linearGradient = defs.append("linearGradient")
+        .attr("id", "linear-gradient");
+
+    linearGradient
+        .attr("x1", "0%")
+        .attr("y1", "0%")
+        .attr("x2", "0%")
+        .attr("y2", "100%");
+
+    //Set the color for the start (0%)
+    linearGradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "#000000"); //black
+
+    //Set the color for the end (100%)
+    linearGradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "#ffffff"); //white
+
+    legend.append("rect")
+        .attr("x", width + 0.5 * gridSize - 6)
+        .attr("y", legendElementSize - height - 30)
+        //.attr("rx", 4)
+        //.attr("ry", 4)
+        .attr("width", gridSize*0.75)
+        .attr("height", legendElementSize + 5)
+        .attr('class', 'bordered')
+        .style("fill", "url(#linear-gradient)");
+
+    legend.append("text")
+        .attr("class", "mono")
+        .text(function(d) { return Math.round( heatMax ); })
+        .attr("x", width + 1.5 * gridSize - 6)
+        .attr("y", legendElementSize - height - 22)
+
+    legend.append("text")
+        .attr("class", "mono")
+        .text("0")
+        .attr("x", width + 1.5 * gridSize - 6)
+        .attr("y", legendElementSize)
+
+    //legend shape, color fills
+    // for (var i = 0; i < legendCount; i++) {
+    //     legend.append("rect")
+    //         .attr("x", width + 0.5 * gridSize)
+    //         .attr("y", function(d) { return legendElementSize * (legendCount - i - 1); })
+    //         .attr("rx", 4)
+    //         .attr("ry", 4)
+    //         .attr("width", width/temporalScaleLegend.length)
+    //         .attr("height", legendElementSize)
+    //         .attr('class', 'bordered')
+    //         .style("fill", function(d) {
+    //             var colorValue = 255 - Math.floor((6 / 5 - 6 / (5 + 25 * (i / (legendCount - 1)))) * 255);
+    //             return 'rgb(' + colorValue + ', ' + colorValue + ', ' + colorValue + ')';
+    //         });
+    // }
+    // // number labels for legend
+    // for (var i = 0; i < 2; i++) {
+    //     legend.append("text")
+    //         .attr("class", "mono")
+    //         .text(function(d) { return Math.round(i * heatMax ); })
+    //         .attr("x", width + 1.25 * gridSize)
+    //         .attr("y", function(d) { return (legendCount - 1) * legendElementSize * (1 - i) + 10; } );
+    // }
 }
 
 var fillCategoryTriangles = function(level, dataObject) {
-    //TODO reorient positions of circles/where categories go to match McCloud's Triangle
     var maxCount = 0;
     var circleCount = 0;
     var dataArray = new Array();
