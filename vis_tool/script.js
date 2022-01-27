@@ -853,6 +853,7 @@ var scaleHeatMap = function(data) {
     var linearGradient = defs.append("linearGradient")
         .attr("id", "linear-gradient");
 
+    //vertical gradient
     linearGradient
         .attr("x1", "0%")
         .attr("y1", "0%")
@@ -875,7 +876,7 @@ var scaleHeatMap = function(data) {
         //.attr("rx", 4)
         //.attr("ry", 4)
         .attr("width", gridSize*0.75)
-        .attr("height", legendElementSize + 5)
+        .attr("height", legendElementSize)
         .attr('class', 'bordered')
         .style("fill", "url(#linear-gradient)");
 
@@ -890,30 +891,6 @@ var scaleHeatMap = function(data) {
         .text("0")
         .attr("x", width + 1.5 * gridSize - 6)
         .attr("y", legendElementSize)
-
-    //legend shape, color fills
-    // for (var i = 0; i < legendCount; i++) {
-    //     legend.append("rect")
-    //         .attr("x", width + 0.5 * gridSize)
-    //         .attr("y", function(d) { return legendElementSize * (legendCount - i - 1); })
-    //         .attr("rx", 4)
-    //         .attr("ry", 4)
-    //         .attr("width", width/temporalScaleLegend.length)
-    //         .attr("height", legendElementSize)
-    //         .attr('class', 'bordered')
-    //         .style("fill", function(d) {
-    //             var colorValue = 255 - Math.floor((6 / 5 - 6 / (5 + 25 * (i / (legendCount - 1)))) * 255);
-    //             return 'rgb(' + colorValue + ', ' + colorValue + ', ' + colorValue + ')';
-    //         });
-    // }
-    // // number labels for legend
-    // for (var i = 0; i < 2; i++) {
-    //     legend.append("text")
-    //         .attr("class", "mono")
-    //         .text(function(d) { return Math.round(i * heatMax ); })
-    //         .attr("x", width + 1.25 * gridSize)
-    //         .attr("y", function(d) { return (legendCount - 1) * legendElementSize * (1 - i) + 10; } );
-    // }
 }
 
 var fillCategoryTriangles = function(level, dataObject) {
