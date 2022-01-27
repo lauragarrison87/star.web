@@ -535,10 +535,10 @@ var tabulate = function(data, columns) {
 
             if (!isNaN(ss) && !isNaN(sf) && !isNaN(ts) && !isNaN(tf)) {
                 d3.select("#heatMapCover")
-                    .attr("x", (ts + 15) * 20)
-                    .attr("y", (-sf) * 20)
-                    .attr("width", (1 + tf - ts) * 20)
-                    .attr("height", (1 + sf - ss) * 20)
+                    .attr("x", (ts + 15) * 19)
+                    .attr("y", (-sf) * 19)
+                    .attr("width", (1 + tf - ts) * 19)
+                    .attr("height", (1 + sf - ss) * 19)
                     .classed("heatHidden", false);
             }
 
@@ -627,10 +627,10 @@ var tabulate = function(data, columns) {
 
         if (!isNaN(ss) && !isNaN(sf) && !isNaN(ts) && !isNaN(tf)) {
             d3.select("#heatMapClicked")
-                .attr("x", (ts + 15) * 20)
-                .attr("y", (-sf) * 20)
-                .attr("width", (1 + tf - ts) * 20)
-                .attr("height", (1 + sf - ss) * 20)
+                .attr("x", (ts + 15) * 19)
+                .attr("y", (-sf) * 19)
+                .attr("width", (1 + tf - ts) * 19)
+                .attr("height", (1 + sf - ss) * 19)
                 .classed("heatHidden", false);
         }
 
@@ -746,11 +746,10 @@ var scaleHeatMap = function(data) {
     var temporalScaleLegend = ["-15", "-14", "-13", "-12", "-11", "-10", "-9", "-8", "-7", "-6", "-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     var spatialScaleLegend = ["-10", "-9", "-8", "-7", "-6", "-5", "-4", "-3", "-2", "-1", "0"];
 
-    var margin = { top: 20, right: 20, bottom: 80, left: 40 };
+    var margin = { top: 20, right: 40, bottom: 80, left: 40 };
     var width = 560 - margin.left - margin.right;
     var height = 320 - margin.top - margin.bottom;
     var gridSize = Math.floor(width / temporalScaleLegend.length);
-    var legendElementWidth = gridSize;
     var heatMax = d3.max(heatData, function(d) { return d.value; });
 
     var svg = d3.select("#scaleHeatMap").append("svg")
@@ -843,27 +842,29 @@ var scaleHeatMap = function(data) {
     var legend = svg.append("g")
         .attr("class", "legend");
 
-
     var legendCount = 20;
+    var legendElementSize = gridSize * spatialScaleLegend.length / legendCount;
+
     for (var i = 0; i < legendCount; i++) {
         legend.append("rect")
-            .attr("x", function(d) { return legendElementWidth * i; })
-            .attr("y", height + 1.5 * gridSize)
+            .attr("x", width + 0.5 * gridSize)
+            .attr("y", function(d) { return legendElementSize * (legendCount - i - 1); })
             .attr("rx", 4)
             .attr("ry", 4)
-            .attr("width", legendElementWidth)
-            .attr("height", gridSize / 2)
+            .attr("width", legendElementSize)
+            .attr("height", legendElementSize)
             .attr('class', 'bordered')
             .style("fill", function(d) {
                 var colorValue = 255 - Math.floor((6 / 5 - 6 / (5 + 25 * (i / (legendCount - 1)))) * 255);
                 return 'rgb(' + colorValue + ', ' + colorValue + ', ' + colorValue + ')';
             });
-
+    }
+    for (var i = 0; i < 2; i++) {
         legend.append("text")
             .attr("class", "mono")
-            .text(function(d) { return Math.round(i * heatMax / legendCount); })
-            .attr("x", function(d) { return legendElementWidth * i + 5; })
-            .attr("y", height + 2.5 * gridSize);
+            .text(function(d) { return Math.round(i * heatMax ); })
+            .attr("x", width + 1.25 * gridSize)
+            .attr("y", function(d) { return (legendCount - 1) * legendElementSize * (1 - i) + 10; } );
     }
 }
 
