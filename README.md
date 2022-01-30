@@ -1,5 +1,5 @@
 # Opportunities in Visualization for Physiology: A Multiscale Overview
-## Supplementary Materials
+## Supplementary Material
 
 ![Screenshot of navigation interface for literature collected and categorized to date for Physiology Visualization State-of-the-Art Report](resource/preview.png)
 
@@ -7,11 +7,9 @@ Explore the literature we have collected that provides a multiscale overview of 
 
 
 _Abstract_:
-Human physiology is a complex, multi-faceted science that combines elements of biology, chemistry, physics, and medicine. In this report we offer a broad and multiscale perspective on key developments and highlight key challenges in visualization for physiology. Our literature search process combines standard methods with state-of-the-art visual analysis search tools to identify surveys and representative individual methods or tools papers using visualization for physiology. Our resulting literature taxonomy sorts literature first according to level of biological organization, ranging from molecule to organ. A second layer identifies high-level visualization tasks within each piece of literature: exploration, analysis, and communication. The results of this report may be used for visualization researchers to understand the overarching trends, challenges, and opportunities in visualization for physiology and to provide a foundation for discussion and future research directions in this area.
+Combining elements of biology, chemistry, physics, and medicine, the science of human physiology is complex and multifaced. In this report we offer a broad and multiscale perspective on key developments and challenges in visualization for physiology. Our literature search process combined standard methods with a state-of-the-art visual analysis search tool to identify surveys and representative individual approaches for physiology. Our resulting taxonomy sorts literature on two levels. The first level sorts literature according to organizational complexity, and ranges from molecule to organ. A second level identifies any of three high-level visualization tasks within a given work: exploration, analysis, and communication. The findings of this report may be used by visualization researchers to understand the overarching trends, challenges, and opportunities in visualization for physiology, and to provide a foundation for discussion and future research directions in this area.
 
-### Additional materials 
-
-- [Database of categorized literature to date (work in progress)]()
+- [Literature Database](vis_tool/data/literature-database.xlsx)
 - Short Biography of authors:
     - *Laura Garrison* is a PhD student in the Dept. of Informatics at the Univ. of Bergen, Norway. Her thesis centers on the visualization of physiological processes for communication, exploration, and analysis. She is a board-certified medical illustrator with extensive experience in the medical education technology start-up space as an illustrator, designer, and content director. 
     - *Ivan Kolesar* received his PhD from the Dept. of Informatics at the Univ. of Bergen, Norway, where his research interests include molecular visualization, the visualization of structural phenomena, and physiology visualization. He now is a software engineer for Rainfall AS, a technology company in Bergen. 
