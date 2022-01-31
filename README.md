@@ -11,7 +11,7 @@ Combining elements of biology, chemistry, physics, and medicine, the science of 
 **Explore the literature** we have collected that provides a multiscale overview of visualization for physiology. This tool is a companion to our submitted paper.
 
 You can either use the tool directly from here: [https://lauragarrison87.github.io/star.web/vis_tool](https://lauragarrison87.github.io/star.web/vis_tool) or **run locally**:
-1. Clone repository from github
+1. Clone or download repository.
 2. Start a local server. We suggest using Node.js ```live-server```. If you don't have this installed already, do so with the following command: ```npm install live-server -g```
 3. Navigate to the root directory of this repository, and run the following command: ```live-server```
 4. This should launch a web browser. Click on the ```vis-tool``` directory icon. This should load the web tool.
