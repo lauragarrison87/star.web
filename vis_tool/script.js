@@ -1073,7 +1073,7 @@ var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend)
             var circleLegendNode = circleLegend.append('g')
                 .attr('class', 'circleLegend' + i)
                 .attr('transform', 'translate(' + 0 + ', ' + i * 17 + ')');
-    
+
             circleLegendNode.append('circle')
                 .attr('cx', 0)
                 .attr('cy', 0)
@@ -1083,7 +1083,7 @@ var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend)
                     var newColor = 255 - Math.round(255 * (legendValue / allMaxCount));
                     return 'rgb(' + newColor + ', ' + newColor + ', ' + newColor + ')';
                 })
-    
+
             circleLegendNode.append('text')
                 .text(legendValue)
                 .attr("x", 15)
