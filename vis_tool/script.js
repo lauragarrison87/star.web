@@ -523,10 +523,10 @@ var tabulate = function(data, columns) {
 
             if (!isNaN(ss) && !isNaN(sf) && !isNaN(ts) && !isNaN(tf)) {
                 d3.select("#heatMapCover")
-                    .attr("x", (ts + 15) * 19)
-                    .attr("y", (-sf) * 19)
-                    .attr("width", (1 + tf - ts) * 19)
-                    .attr("height", (1 + sf - ss) * 19)
+                    .attr("x", (ts + 15) * 18)
+                    .attr("y", (-sf) * 18)
+                    .attr("width", (1 + tf - ts) * 18)
+                    .attr("height", (1 + sf - ss) * 18)
                     .classed("heatHidden", false);
             }
 
@@ -614,10 +614,10 @@ var tabulate = function(data, columns) {
 
         if (!isNaN(ss) && !isNaN(sf) && !isNaN(ts) && !isNaN(tf)) {
             d3.select("#heatMapClicked")
-                .attr("x", (ts + 15) * 19)
-                .attr("y", (-sf) * 19)
-                .attr("width", (1 + tf - ts) * 19)
-                .attr("height", (1 + sf - ss) * 19)
+                .attr("x", (ts + 15) * 18)
+                .attr("y", (-sf) * 18)
+                .attr("width", (1 + tf - ts) * 18)
+                .attr("height", (1 + sf - ss) * 18)
                 .classed("heatHidden", false);
         }
 
