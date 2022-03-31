@@ -3,11 +3,11 @@ var triangleSize = 200;
 var triangleHeight = triangleSize * (Math.sqrt(3) / 2);
 
 var trianglesMoleculeData = []
-//var trianglesOrganelleData = []
+    //var trianglesOrganelleData = []
 var trianglesCellData = []
 var trianglesTissueData = []
 var trianglesOrganData = []
-//var trianglesBodyData      = []
+    //var trianglesBodyData      = []
 
 var keywordsObject = {}
 
@@ -656,7 +656,7 @@ var tabulate = function(data, columns) {
         d3.select("#paperHeaderInfo p").html(
             d["Bibtex Authors"] +
             "</b><br/>" +
-            "DOI: <a href='https://dx.doi.org/"+d["DOI"]+"' target='_blank'>"+d["DOI"]+"</a>"
+            "DOI: <a href='https://dx.doi.org/" + d["DOI"] + "' target='_blank'>" + d["DOI"] + "</a>"
         );
 
         d3.select("#paperText p").html("<b>Abstract:</b><br/>" + d["Abstract"]);
@@ -738,7 +738,7 @@ var levelChart = function(data) {
         .attr("y", -5)
         .attr("class", "axis")
         .text(function(level) { return level.count.toFixed(0); });
-        //.text(function(level) { return level.count.toFixed(2); });
+    //.text(function(level) { return level.count.toFixed(2); });
 
 }
 
@@ -746,7 +746,7 @@ var scaleHeatMap = function(data) {
     var temporalScaleLegend = ["-15", "-14", "-13", "-12", "-11", "-10", "-9", "-8", "-7", "-6", "-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     var spatialScaleLegend = ["-10", "-9", "-8", "-7", "-6", "-5", "-4", "-3", "-2", "-1", "0"];
 
-    var margin = { top: 20, right: 40, bottom: 80, left: 40 };
+    var margin = { top: 20, right: 40, bottom: 80, left: 60 };
     var width = 560 - margin.left - margin.right;
     var height = 280 - margin.top - margin.bottom;
     var gridSize = Math.floor(width / temporalScaleLegend.length);
@@ -769,11 +769,11 @@ var scaleHeatMap = function(data) {
         .attr('class', 'spatialLabel mono axis axis-workweek');
 
     svg.append('text')
-        .text('Spatial scale')
+        .text('Spatial scale (meters) [10^0 = 1m]')
         .attr('x', 0)
         .attr('y', 0)
         .style('text-anchor', 'end')
-        .attr('transform', 'translate(-25, 70)  rotate(-90)')
+        .attr('transform', 'translate(-35, 10)  rotate(-90)')
         .attr('class', 'spatialLabel mono axis axis-workweek');
 
     var timeLabels = svg.selectAll('.temporalLabel')
@@ -787,7 +787,7 @@ var scaleHeatMap = function(data) {
         .attr('class', 'temporalLabel mono axis axis-worktime');
 
     svg.append('text')
-        .text('Temporal scale')
+        .text('Temporal scale (seconds) [10^0 = 1s]')
         .attr('x', 300)
         .attr('y', 250)
         .style('text-anchor', 'end')
@@ -840,7 +840,8 @@ var scaleHeatMap = function(data) {
         //.style("fill", 'rgba(232, 192, 154, 0.9)')
 
     var legend = svg.append("g")
-        .attr("class", "legend");
+        .attr("class", "legend")
+        .attr("transform", "translate(0,12)")
 
     var legendCount = 1; //20
     var legendElementSize = gridSize * spatialScaleLegend.length / legendCount;
@@ -875,14 +876,14 @@ var scaleHeatMap = function(data) {
         .attr("y", legendElementSize - height - 30)
         //.attr("rx", 4)
         //.attr("ry", 4)
-        .attr("width", gridSize*0.75)
+        .attr("width", gridSize * 0.75)
         .attr("height", legendElementSize)
         .attr('class', 'bordered')
         .style("fill", "url(#linear-gradient)");
 
     legend.append("text")
         .attr("class", "mono")
-        .text(function(d) { return Math.round( heatMax ); })
+        .text(function(d) { return Math.round(heatMax); })
         .attr("x", width + 1.5 * gridSize - 6)
         .attr("y", legendElementSize - height - 22)
 
@@ -1065,7 +1066,7 @@ var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend)
         .style('stroke', 'black')
         .style('fill', 'rgba(210, 215, 219, 0.9)')
 
-    if(showLegend) {
+    if (showLegend) {
         var circleLegend = svg.append('g').attr('class', 'circleLegend');
         var legendItemsCount = allMaxCount > 5 ? 5 : allMaxCount + 1;
         for (var i = 0; i < legendItemsCount; i++) {
@@ -1191,9 +1192,9 @@ var fillImageCollection = function(data) {
         if (row['Image Name'] !== '---') {
             var rowNum = 0;
 
-            var dv = row['Direct Vis'];//.replace(',', '.');
-            var va = row['Vis analysis'];//.replace(',', '.');
-            var iv = row['Illus Vis'];//.replace(',', '.');
+            var dv = row['Direct Vis']; //.replace(',', '.');
+            var va = row['Vis analysis']; //.replace(',', '.');
+            var iv = row['Illus Vis']; //.replace(',', '.');
 
             if ((dv >= va) && (dv >= iv))
                 rowNum = 1;
@@ -1212,9 +1213,9 @@ var fillImageCollection = function(data) {
                         selectedCell = selectedRow.select('td:nth-child(2)');
                         break;
 
-                    // case "Organelle":
-                    //     selectedCell = selectedRow.select('td:nth-child(3)');
-                    //     break;
+                        // case "Organelle":
+                        //     selectedCell = selectedRow.select('td:nth-child(3)');
+                        //     break;
 
                     case "Cell":
                         selectedCell = selectedRow.select('td:nth-child(4)');
@@ -1266,9 +1267,9 @@ d3.text("data/papers.csv", function(data) {
 
             var coordinates = {
                 id: +d['ID'],
-                dv: parseFloat(d['Exploration']),//.replace(',', '.')),
-                va: parseFloat(d['Analysis']),//.replace(',', '.')),
-                iv: parseFloat(d['Communication']),//.replace(',', '.'))
+                dv: parseFloat(d['Exploration']), //.replace(',', '.')),
+                va: parseFloat(d['Analysis']), //.replace(',', '.')),
+                iv: parseFloat(d['Communication']), //.replace(',', '.'))
             };
 
             var strIndex = coordinates.dv + '_' + coordinates.va + '_' + coordinates.iv;
@@ -1320,9 +1321,9 @@ d3.text("data/papers.csv", function(data) {
                         levelData[0].count += 1 / levelCount;
                         var coordinates = {
                             id: +d['ID'],
-                            dv: Number(d['Exploration']),//.replace(',', '.')),
-                            va: Number(d['Analysis']),//.replace(',', '.')),
-                            iv: Number(d['Communication']),//.replace(',', '.'))
+                            dv: Number(d['Exploration']), //.replace(',', '.')),
+                            va: Number(d['Analysis']), //.replace(',', '.')),
+                            iv: Number(d['Communication']), //.replace(',', '.'))
                         };
                         fillValue(e.trim(), coordinates);
 
@@ -1333,30 +1334,30 @@ d3.text("data/papers.csv", function(data) {
                         trianglesMoleculeData[strIndex].push(coordinates);
                         break;
 
-                    // case "Organelle":
-                    //     levelData[1].count += 1 / levelCount;
-                    //     var coordinates = {
-                    //         id: +d['ID'],
-                    //         dv: Number(d['Exploration']),//.replace(',', '.')),
-                    //         va: Number(d['Analysis']),//.replace(',', '.')),
-                    //         iv: Number(d['Communication']),//.replace(',', '.'))
-                    //     };
-                    //     fillValue(e.trim(), coordinates);
-                    //
-                    //     var strIndex = coordinates.dv + '_' + coordinates.va + '_' + coordinates.iv;
-                    //     if (typeof(trianglesOrganelleData[strIndex]) == "undefined") {
-                    //         trianglesOrganelleData[strIndex] = new Array();
-                    //     }
-                    //     trianglesOrganelleData[strIndex].push(coordinates);
-                    //     break;
+                        // case "Organelle":
+                        //     levelData[1].count += 1 / levelCount;
+                        //     var coordinates = {
+                        //         id: +d['ID'],
+                        //         dv: Number(d['Exploration']),//.replace(',', '.')),
+                        //         va: Number(d['Analysis']),//.replace(',', '.')),
+                        //         iv: Number(d['Communication']),//.replace(',', '.'))
+                        //     };
+                        //     fillValue(e.trim(), coordinates);
+                        //
+                        //     var strIndex = coordinates.dv + '_' + coordinates.va + '_' + coordinates.iv;
+                        //     if (typeof(trianglesOrganelleData[strIndex]) == "undefined") {
+                        //         trianglesOrganelleData[strIndex] = new Array();
+                        //     }
+                        //     trianglesOrganelleData[strIndex].push(coordinates);
+                        //     break;
 
                     case "Cell":
                         levelData[1].count += 1 / levelCount;
                         var coordinates = {
                             id: +d['ID'],
-                            dv: Number(d['Exploration']),//.replace(',', '.')),
-                            va: Number(d['Analysis']),//.replace(',', '.')),
-                            iv: Number(d['Communication']),//.replace(',', '.'))
+                            dv: Number(d['Exploration']), //.replace(',', '.')),
+                            va: Number(d['Analysis']), //.replace(',', '.')),
+                            iv: Number(d['Communication']), //.replace(',', '.'))
                         };
                         fillValue(e.trim(), coordinates);
 
@@ -1371,9 +1372,9 @@ d3.text("data/papers.csv", function(data) {
                         levelData[2].count += 1 / levelCount;
                         var coordinates = {
                             id: +d['ID'],
-                            dv: Number(d['Exploration']),//.replace(',', '.')),
-                            va: Number(d['Analysis']),//.replace(',', '.')),
-                            iv: Number(d['Communication'])//.replace(',', '.'))
+                            dv: Number(d['Exploration']), //.replace(',', '.')),
+                            va: Number(d['Analysis']), //.replace(',', '.')),
+                            iv: Number(d['Communication']) //.replace(',', '.'))
                         };
                         fillValue(e.trim(), coordinates);
 
@@ -1388,9 +1389,9 @@ d3.text("data/papers.csv", function(data) {
                         levelData[3].count += 1 / levelCount;
                         var coordinates = {
                             id: +d['ID'],
-                            dv: Number(d['Exploration']),//.replace(',', '.')),
-                            va: Number(d['Analysis']),//.replace(',', '.')),
-                            iv: Number(d['Communication'])//.replace(',', '.'))
+                            dv: Number(d['Exploration']), //.replace(',', '.')),
+                            va: Number(d['Analysis']), //.replace(',', '.')),
+                            iv: Number(d['Communication']) //.replace(',', '.'))
                         }
                         fillValue(e.trim(), coordinates);
 
@@ -1465,7 +1466,7 @@ d3.text("data/papers.csv", function(data) {
 
     var maxCount = 0;
     var allData = [trianglesMoleculeData, trianglesCellData, trianglesTissueData, trianglesOrganData]
-    for (var data in allData){
+    for (var data in allData) {
         for (var name in allData[data]) {
             if (allData[data][name].length > maxCount)
                 maxCount = allData[data][name].length;
