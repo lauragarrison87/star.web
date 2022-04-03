@@ -83,12 +83,9 @@ var groupTriangles = [
 
 var groupTrianglesCount = {
     Molecule: 0,
-    // Organelle: 0,
     Cell: 0,
     Tissue: 0,
     Organ: 0
-        /*,
-        	Body : 0*/
 };
 
 var fillValue = function(level, coordinates) {
@@ -445,12 +442,9 @@ var heatData = [
 
 var levelData = [
     { name: "Molecule", count: 0 },
-    // { name: "Organelle", count: 0 },
     { name: "Cell", count: 0 },
     { name: "Tissue", count: 0 },
     { name: "Organ", count: 0 }
-    /*,
-    	{name: "Body",      count: 0}*/
 ];
 
 var tabulate = function(data, columns) {
@@ -877,7 +871,13 @@ var scaleHeatMap = function(data) {
         .attr("class", "mono")
         .text("0")
         .attr("x", width + 1.5 * gridSize - 6)
-        .attr("y", legendElementSize)
+        .attr("y", legendElementSize - 10)
+
+    legend.append("text")
+        .attr("class", "mono")
+        .text("# Papers")
+        .attr("x", width - 10)
+        .attr("y", -19)
 }
 
 var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend) {
@@ -996,7 +996,7 @@ var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend)
         .append('circle')
         .attr('cx', function(moleculeGroup) { return (moleculeGroup[0].dv * ndvx) + (moleculeGroup[0].iv * nivx) + (moleculeGroup[0].va * nvax); })
         .attr('cy', function(moleculeGroup) { return (moleculeGroup[0].dv * ndvy) + (moleculeGroup[0].iv * nivy) + (moleculeGroup[0].va * nvay); })
-        .attr('r', function(moleculeGroup) { return circleSize/2 + circleSize * moleculeGroup.length / allMaxCount})
+        .attr('r', function(moleculeGroup) { return circleSize / 2 + circleSize * moleculeGroup.length / allMaxCount })
         .style('stroke', 'black')
         .style('fill', function(moleculeGroup) {
             var newColor = 255 - Math.round(255 * (moleculeGroup.length / allMaxCount));
@@ -1048,9 +1048,38 @@ var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend)
         .style('fill', 'rgba(210, 215, 219, 0.9)')
 
     if (showLegend) {
+        /* begin LG version legend */
         var circleLegend = svg.append('g').attr('class', 'circleLegend');
-        var legendItemsCount = allMaxCount > 5 ? 5 : allMaxCount + 1;
-        for (var i = 0; i < legendItemsCount; i++) {
+        circleLegend.append('text')
+            .attr("class", "mono")
+            .text("# Papers")
+            .attr("transform", "translate(-10,0)")
+
+        circleLegend.append("rect")
+            .attr("x", 0)
+            .attr("y", 8)
+            .attr("width", 13)
+            .attr("height", 70)
+            .attr('class', 'bordered')
+            .style("fill", "url(#linear-gradient)");
+
+        circleLegend.append("text")
+            .attr("class", "mono")
+            .text(function(d) { return Math.round(allMaxCount); })
+            .attr("x", 18)
+            .attr("y", 18)
+
+        circleLegend.append("text")
+            .attr("class", "mono")
+            .text("0")
+            .attr("x", 18)
+            .attr("y", 80)
+            /* end LG version legend */
+
+        /* 
+        ***commenting out to go with a more consistent smooth linear gradient for the legend****
+            var legendItemsCount = allMaxCount > 5 ? 5 : allMaxCount + 1;
+            for (var i = 0; i < legendItemsCount; i++) {
             var legendValue = Math.round(i * (allMaxCount / (legendItemsCount - 1)));
             var circleLegendNode = circleLegend.append('g')
                 .attr('class', 'circleLegend' + i)
@@ -1070,7 +1099,7 @@ var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend)
                 .text(legendValue)
                 .attr("x", 15)
                 .attr("y", 4);
-        }
+        } */
     }
 }
 
@@ -1252,6 +1281,6 @@ d3.text("data/papers.csv", function(data) {
     fillCategoryTriangles("Cell", trianglesCellData, maxCount, false);
     fillCategoryTriangles("Tissue", trianglesTissueData, maxCount, false);
     fillCategoryTriangles("Organ", trianglesOrganData, maxCount, false);
-    
+
     fillImageCollection(parsedCSV);
 })
