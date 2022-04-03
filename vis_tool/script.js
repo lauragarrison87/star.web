@@ -28,79 +28,64 @@ var groupTriangles = [
     // dviv = 0
     {
         points: triangleSize / 2 + ' ' + 0 + ', ' + triangleSize / 4 + ' ' + triangleHeight / 2 + ', ' + triangleSize / 2 + ' ' + 2 * triangleHeight / 3 + ', ' + triangleSize / 2 + ' ' + 0,
+        bg: colorDV,
         valueMolecule: 0,
-        // valueOrganelle: 0,
         valueCell: 0,
         valueTissue: 0,
         valueOrgan: 0
-            /*,
-            		valueBody: 0*/
     },
     // dvva = 1
     {
         points: triangleSize / 2 + ' ' + 0 + ', ' + triangleSize / 2 + ' ' + 2 * triangleHeight / 3 + ', ' + 3 * triangleSize / 4 + ' ' + triangleHeight / 2 + ', ' + triangleSize / 2 + ' ' + 0,
+        bg: colorDV,
         valueMolecule: 0,
-        // valueOrganelle: 0,
         valueCell: 0,
         valueTissue: 0,
         valueOrgan: 0
-            /*,
-            		valueBody: 0*/
     },
     // ivdv = 2
     {
         points: 0 + ' ' + triangleHeight + ', ' + triangleSize / 2 + ' ' + 2 * triangleHeight / 3 + ', ' + triangleSize / 4 + ' ' + triangleHeight / 2 + ', ' + 0 + ' ' + triangleHeight,
+        bg: colorIV,
         valueMolecule: 0,
-        // valueOrganelle: 0,
         valueCell: 0,
         valueTissue: 0,
         valueOrgan: 0
-            /*,
-            		valueBody: 0*/
     },
     // ivva = 3
     {
         points: 0 + ' ' + triangleHeight + ', ' + triangleSize / 2 + ' ' + triangleHeight + ', ' + triangleSize / 2 + ' ' + 2 * triangleHeight / 3 + ', ' + 0 + ' ' + triangleHeight,
+        bg: colorIV,
         valueMolecule: 0,
-        // valueOrganelle: 0,
         valueCell: 0,
         valueTissue: 0,
         valueOrgan: 0
-            /*,
-            		valueBody: 0*/
     },
     // vaiv = 4
     {
         points: triangleSize / 2 + ' ' + triangleHeight + ', ' + triangleSize + ' ' + triangleHeight + ', ' + triangleSize / 2 + ' ' + 2 * triangleHeight / 3 + ', ' + triangleSize / 2 + ' ' + triangleHeight,
+        bg: colorVA,
         valueMolecule: 0,
-        // valueOrganelle: 0,
         valueCell: 0,
         valueTissue: 0,
         valueOrgan: 0
-            /*,
-            		valueBody: 0*/
     },
     // vadv = 5
     {
         points: triangleSize / 2 + ' ' + 2 * triangleHeight / 3 + ', ' + triangleSize + ' ' + triangleHeight + ', ' + 3 * triangleSize / 4 + ' ' + triangleHeight / 2 + ', ' + triangleSize / 2 + ' ' + 2 * triangleHeight / 3,
+        bg: colorVA,
         valueMolecule: 0,
-        // valueOrganelle: 0,
         valueCell: 0,
         valueTissue: 0,
         valueOrgan: 0
-            /*,
-            		valueBody: 0*/
     }
 ];
 
 var groupTrianglesCount = {
     Molecule: 0,
-    // Organelle: 0,
     Cell: 0,
     Tissue: 0,
     Organ: 0
-        /*,
-        	Body : 0*/
 };
 
 var fillValue = function(level, coordinates) {
@@ -457,12 +442,9 @@ var heatData = [
 
 var levelData = [
     { name: "Molecule", count: 0 },
-    // { name: "Organelle", count: 0 },
     { name: "Cell", count: 0 },
     { name: "Tissue", count: 0 },
     { name: "Organ", count: 0 }
-    /*,
-    	{name: "Body",      count: 0}*/
 ];
 
 var tabulate = function(data, columns) {
@@ -535,10 +517,10 @@ var tabulate = function(data, columns) {
 
             if (!isNaN(ss) && !isNaN(sf) && !isNaN(ts) && !isNaN(tf)) {
                 d3.select("#heatMapCover")
-                    .attr("x", (ts + 15) * 19)
-                    .attr("y", (-sf) * 19)
-                    .attr("width", (1 + tf - ts) * 19)
-                    .attr("height", (1 + sf - ss) * 19)
+                    .attr("x", (ts + 15) * 18)
+                    .attr("y", (-sf) * 18)
+                    .attr("width", (1 + tf - ts) * 18)
+                    .attr("height", (1 + sf - ss) * 18)
                     .classed("heatHidden", false);
             }
 
@@ -626,10 +608,10 @@ var tabulate = function(data, columns) {
 
         if (!isNaN(ss) && !isNaN(sf) && !isNaN(ts) && !isNaN(tf)) {
             d3.select("#heatMapClicked")
-                .attr("x", (ts + 15) * 19)
-                .attr("y", (-sf) * 19)
-                .attr("width", (1 + tf - ts) * 19)
-                .attr("height", (1 + sf - ss) * 19)
+                .attr("x", (ts + 15) * 18)
+                .attr("y", (-sf) * 18)
+                .attr("width", (1 + tf - ts) * 18)
+                .attr("height", (1 + sf - ss) * 18)
                 .classed("heatHidden", false);
         }
 
@@ -874,8 +856,6 @@ var scaleHeatMap = function(data) {
     legend.append("rect")
         .attr("x", width + 0.5 * gridSize - 6)
         .attr("y", legendElementSize - height - 30)
-        //.attr("rx", 4)
-        //.attr("ry", 4)
         .attr("width", gridSize * 0.75)
         .attr("height", legendElementSize)
         .attr('class', 'bordered')
@@ -891,7 +871,13 @@ var scaleHeatMap = function(data) {
         .attr("class", "mono")
         .text("0")
         .attr("x", width + 1.5 * gridSize - 6)
-        .attr("y", legendElementSize)
+        .attr("y", legendElementSize - 10)
+
+    legend.append("text")
+        .attr("class", "mono")
+        .text("# Papers")
+        .attr("x", width - 10)
+        .attr("y", -19)
 }
 
 var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend) {
@@ -912,7 +898,6 @@ var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend)
     var height = 230 - margin.top - margin.bottom;
     var circleSize = 8;
     var triangleOffset = 10;
-    var triangleOffsetCoord = triangleOffset / Math.sqrt(2);
 
     var purposeCircleSize = 20;
 
@@ -935,8 +920,7 @@ var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend)
         .attr('r', purposeCircleSize)
         .style('stroke', colorDV) //#963
         .style('fill', colorDV); //#C96
-    circleDV
-        .append('text')
+    circleDV.append('text')
         .text('E')
         .attr("x", -4)
         .attr("y", -1)
@@ -951,8 +935,7 @@ var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend)
         .attr('r', 20)
         .style('stroke', colorIV) //#963
         .style('fill', colorIV); //#C96
-    circleIV
-        .append('text')
+    circleIV.append('text')
         .text('C')
         .attr("x", -15)
         .attr("y", 5)
@@ -967,8 +950,7 @@ var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend)
         .attr('r', 20)
         .style('stroke', colorVA) //#963
         .style('fill', colorVA); //#C96
-    circleVA
-        .append('text')
+    circleVA.append('text')
         .text('A')
         .attr("x", 0)
         .attr("y", 5)
@@ -993,10 +975,9 @@ var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend)
         .append('polyline')
         .attr('points', function(triangle) { return triangle.points; })
         .style('stroke', 'black')
-        .style('fill', function(triangle) {
-            var newColor = triangle['value' + level] / groupTrianglesCount[level];
-            return 'rgb(' + (255 - Math.round(255 * newColor)) + ', ' + (255 - Math.round(255 * newColor)) + ', ' + (255 - Math.round(255 * newColor)) + ')'
-        });
+        .style('stroke-width', 0.1)
+        .style('fill', function(triangle) { return triangle.bg; })
+        .style('fill-opacity', 0.1);
 
     var circleGroup = triangleGroup.append('g')
         .attr('class', level + 'circleGroup')
@@ -1015,7 +996,7 @@ var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend)
         .append('circle')
         .attr('cx', function(moleculeGroup) { return (moleculeGroup[0].dv * ndvx) + (moleculeGroup[0].iv * nivx) + (moleculeGroup[0].va * nvax); })
         .attr('cy', function(moleculeGroup) { return (moleculeGroup[0].dv * ndvy) + (moleculeGroup[0].iv * nivy) + (moleculeGroup[0].va * nvay); })
-        .attr('r', circleSize)
+        .attr('r', function(moleculeGroup) { return circleSize / 2 + circleSize * moleculeGroup.length / allMaxCount })
         .style('stroke', 'black')
         .style('fill', function(moleculeGroup) {
             var newColor = 255 - Math.round(255 * (moleculeGroup.length / allMaxCount));
@@ -1067,9 +1048,38 @@ var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend)
         .style('fill', 'rgba(210, 215, 219, 0.9)')
 
     if (showLegend) {
+        /* begin LG version legend */
         var circleLegend = svg.append('g').attr('class', 'circleLegend');
-        var legendItemsCount = allMaxCount > 5 ? 5 : allMaxCount + 1;
-        for (var i = 0; i < legendItemsCount; i++) {
+        circleLegend.append('text')
+            .attr("class", "mono")
+            .text("# Papers")
+            .attr("transform", "translate(-10,0)")
+
+        circleLegend.append("rect")
+            .attr("x", 0)
+            .attr("y", 8)
+            .attr("width", 13)
+            .attr("height", 70)
+            .attr('class', 'bordered')
+            .style("fill", "url(#linear-gradient)");
+
+        circleLegend.append("text")
+            .attr("class", "mono")
+            .text(function(d) { return Math.round(allMaxCount); })
+            .attr("x", 18)
+            .attr("y", 18)
+
+        circleLegend.append("text")
+            .attr("class", "mono")
+            .text("0")
+            .attr("x", 18)
+            .attr("y", 80)
+            /* end LG version legend */
+
+        /* 
+        ***commenting out to go with a more consistent smooth linear gradient for the legend****
+            var legendItemsCount = allMaxCount > 5 ? 5 : allMaxCount + 1;
+            for (var i = 0; i < legendItemsCount; i++) {
             var legendValue = Math.round(i * (allMaxCount / (legendItemsCount - 1)));
             var circleLegendNode = circleLegend.append('g')
                 .attr('class', 'circleLegend' + i)
@@ -1089,100 +1099,8 @@ var fillCategoryTriangles = function(level, dataObject, allMaxCount, showLegend)
                 .text(legendValue)
                 .attr("x", 15)
                 .attr("y", 4);
-        }
+        } */
     }
-}
-
-var keywordsBubbleChart = function(data) {
-    var keywordsArray = [];
-
-    for (var keyword in keywordsObject) {
-        if (keyword !== '---') {
-            var sizeTresholded = keywordsObject[keyword] > 20 ? 20 : keywordsObject[keyword];
-            keywordsArray.push({ text: keyword, size: 10 + sizeTresholded });
-        }
-    }
-
-    var cloudWidth = 600;
-    var cloudHeight = cloudWidth / 2 + 20;
-
-    var color = d3.scale.ordinal().range(['#fdae6b', '#969696', '#fd8d3c', '#636363', '#7f2704', '#252525']);
-
-    d3.layout.cloud()
-        .size([cloudWidth, cloudHeight])
-        .words(keywordsArray)
-        .rotate(function() { return 0; })
-        .font("Impact")
-        .fontSize(function(d) { return d.size; })
-        .on("end", draw)
-        .start();
-
-    function draw(words) {
-        var cloudSVG = d3.select("#keywordsBubbleChart").append("svg")
-            .attr("width", cloudWidth)
-            .attr("height", cloudHeight)
-            .append("g")
-            .attr("transform", "translate(" + cloudWidth / 2 + ", " + cloudHeight / 2 + ")");
-
-        var textGroup = cloudSVG.selectAll("g")
-            .data(words).enter()
-            .append("g");
-
-        textGroup.append('text')
-            .style("font-size", function(d) { return d.size + "px"; })
-            .style("font-family", "Impact")
-            .style("fill", function(d, i) { return color(i); })
-            .attr("text-anchor", "middle")
-            .attr("transform", function(d) {
-                return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-            })
-            .text(function(d) { return d.text; });
-
-        textGroup.append('title').text(function(d) { return keywordsObject[d.text]; });
-    }
-
-    /*
-    	var diameter = 650;
-    	var format   = d3.format(",d");
-    	var color    = d3.scale.ordinal().range(['#fff5eb', '#fee6ce', '#fdd0a2', '#fdae6b', '#fd8d3c', '#f16913', '#d94801', '#a63603', '#7f2704']);
-
-    	var bubble = d3.layout.pack()
-    		.sort( function(a, b)
-    		{
-    			var threshold = 15;
-    			if ((a.value > threshold) && (b.value > threshold)) {
-    			return (a.value - b.value);
-    			} else {
-    				return 1;
-    			}
-    		})
-    		.size([diameter, diameter])
-    		.padding(1.5);
-
-    	var svg = d3.select("#keywordsBubbleChart").append("svg")
-    		.attr("width", diameter)
-    		.attr("height", diameter);
-
-    	var node = svg.selectAll(".node")
-    		.data(bubble.nodes({children:keywordsArray}))
-    		.enter().append("g")
-    			.filter(function(d) { return !d.children && d.name != '---'; })
-    			.attr("class", "node")
-    			.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-
-    	node.append("title")
-    		.text(function(d) { return d.name + ": " + format(d.value); });
-
-    	node.append("circle")
-    		.attr("r", function(d) { return d.r; })
-    		.style("stroke", "black")
-    		.style("fill", function(d) { return color(d.name); });
-
-    	node.append("text")
-    		.attr("dy", ".3em")
-    		.style("text-anchor", "middle")
-    		.text(function(d) { return d.name.substring(0, d.r / 3); });
-    		*/
 }
 
 var fillImageCollection = function(data) {
@@ -1192,9 +1110,9 @@ var fillImageCollection = function(data) {
         if (row['Image Name'] !== '---') {
             var rowNum = 0;
 
-            var dv = row['Direct Vis']; //.replace(',', '.');
-            var va = row['Vis analysis']; //.replace(',', '.');
-            var iv = row['Illus Vis']; //.replace(',', '.');
+            var dv = row['Direct Vis'];
+            var va = row['Vis analysis'];
+            var iv = row['Illus Vis'];
 
             if ((dv >= va) && (dv >= iv))
                 rowNum = 1;
@@ -1212,11 +1130,6 @@ var fillImageCollection = function(data) {
                     case "Molecule":
                         selectedCell = selectedRow.select('td:nth-child(2)');
                         break;
-
-                        // case "Organelle":
-                        //     selectedCell = selectedRow.select('td:nth-child(3)');
-                        //     break;
-
                     case "Cell":
                         selectedCell = selectedRow.select('td:nth-child(4)');
                         break;
@@ -1228,11 +1141,6 @@ var fillImageCollection = function(data) {
                     case "Organ":
                         selectedCell = selectedRow.select('td:nth-child(6)');
                         break;
-                        /*
-                        case "Body":
-                        	selectedCell = selectedRow.select('td:nth-child(7)');
-                        	break;
-                        */
                     default:
                         break;
                 }
@@ -1251,67 +1159,12 @@ var fillImageCollection = function(data) {
 
 d3.text("data/papers.csv", function(data) {
     var columns = ['ID', 'Author', 'Title', 'Year'];
-    //var dsv = d3.dsv(";", "text/plain"); //original
     var dsv = d3.dsv(",", "text/plain");
     var parsedCSV = dsv.parse(data);
 
     parsedCSV.forEach(function(d) {
         //for levels & triangles
-        if (d['Level'] == "All" && d['Purpose test'] == '1') {
-            levelData[0].count += 1 / 6;
-            // levelData[1].count += 1 / 6;
-            levelData[2].count += 1 / 6;
-            levelData[3].count += 1 / 6;
-            levelData[4].count += 1 / 6;
-            //levelData[5].count += 1/6;
-
-            var coordinates = {
-                id: +d['ID'],
-                dv: parseFloat(d['Exploration']), //.replace(',', '.')),
-                va: parseFloat(d['Analysis']), //.replace(',', '.')),
-                iv: parseFloat(d['Communication']), //.replace(',', '.'))
-            };
-
-            var strIndex = coordinates.dv + '_' + coordinates.va + '_' + coordinates.iv;
-
-            // MOLECULES
-            if (typeof(trianglesMoleculeData[strIndex]) == "undefined") {
-                trianglesMoleculeData[strIndex] = new Array();
-            }
-            trianglesMoleculeData[strIndex].push(coordinates);
-
-            // ORGANELLES
-            // if (typeof(trianglesOrganelleData[strIndex]) == "undefined") {
-            //     trianglesOrganelleData[strIndex] = new Array();
-            // }
-            // trianglesOrganelleData[strIndex].push(coordinates);
-
-            // CELL
-            if (typeof(trianglesCellData[strIndex]) == "undefined") {
-                trianglesCellData[strIndex] = new Array();
-            }
-            trianglesCellData[strIndex].push(coordinates);
-
-            // TISSUE
-            if (typeof(trianglesTissueData[strIndex]) == "undefined") {
-                trianglesTissueData[strIndex] = new Array();
-            }
-            trianglesTissueData[strIndex].push(coordinates);
-
-            // ORGAN
-            if (typeof(trianglesOrganData[strIndex]) == "undefined") {
-                trianglesOrganData[strIndex] = new Array();
-            }
-            trianglesOrganData[strIndex].push(coordinates);
-            /*
-            // BODY
-            if(typeof(trianglesBodyData[strIndex]) == "undefined")
-            {
-            	trianglesBodyData[strIndex] = new Array();
-            }
-            trianglesBodyData[strIndex].push(coordinates);
-            */
-        } else if (d['Purpose test'] == '1') {
+        if (d['Purpose test'] == '1') {
             var levels = d.Level.split(',');
             var levelCount = levels.length;
 
@@ -1321,9 +1174,9 @@ d3.text("data/papers.csv", function(data) {
                         levelData[0].count += 1 / levelCount;
                         var coordinates = {
                             id: +d['ID'],
-                            dv: Number(d['Exploration']), //.replace(',', '.')),
-                            va: Number(d['Analysis']), //.replace(',', '.')),
-                            iv: Number(d['Communication']), //.replace(',', '.'))
+                            dv: Number(d['Exploration']),
+                            va: Number(d['Analysis']),
+                            iv: Number(d['Communication']),
                         };
                         fillValue(e.trim(), coordinates);
 
@@ -1334,30 +1187,13 @@ d3.text("data/papers.csv", function(data) {
                         trianglesMoleculeData[strIndex].push(coordinates);
                         break;
 
-                        // case "Organelle":
-                        //     levelData[1].count += 1 / levelCount;
-                        //     var coordinates = {
-                        //         id: +d['ID'],
-                        //         dv: Number(d['Exploration']),//.replace(',', '.')),
-                        //         va: Number(d['Analysis']),//.replace(',', '.')),
-                        //         iv: Number(d['Communication']),//.replace(',', '.'))
-                        //     };
-                        //     fillValue(e.trim(), coordinates);
-                        //
-                        //     var strIndex = coordinates.dv + '_' + coordinates.va + '_' + coordinates.iv;
-                        //     if (typeof(trianglesOrganelleData[strIndex]) == "undefined") {
-                        //         trianglesOrganelleData[strIndex] = new Array();
-                        //     }
-                        //     trianglesOrganelleData[strIndex].push(coordinates);
-                        //     break;
-
                     case "Cell":
                         levelData[1].count += 1 / levelCount;
                         var coordinates = {
                             id: +d['ID'],
-                            dv: Number(d['Exploration']), //.replace(',', '.')),
-                            va: Number(d['Analysis']), //.replace(',', '.')),
-                            iv: Number(d['Communication']), //.replace(',', '.'))
+                            dv: Number(d['Exploration']),
+                            va: Number(d['Analysis']),
+                            iv: Number(d['Communication']),
                         };
                         fillValue(e.trim(), coordinates);
 
@@ -1372,9 +1208,9 @@ d3.text("data/papers.csv", function(data) {
                         levelData[2].count += 1 / levelCount;
                         var coordinates = {
                             id: +d['ID'],
-                            dv: Number(d['Exploration']), //.replace(',', '.')),
-                            va: Number(d['Analysis']), //.replace(',', '.')),
-                            iv: Number(d['Communication']) //.replace(',', '.'))
+                            dv: Number(d['Exploration']),
+                            va: Number(d['Analysis']),
+                            iv: Number(d['Communication'])
                         };
                         fillValue(e.trim(), coordinates);
 
@@ -1389,9 +1225,9 @@ d3.text("data/papers.csv", function(data) {
                         levelData[3].count += 1 / levelCount;
                         var coordinates = {
                             id: +d['ID'],
-                            dv: Number(d['Exploration']), //.replace(',', '.')),
-                            va: Number(d['Analysis']), //.replace(',', '.')),
-                            iv: Number(d['Communication']) //.replace(',', '.'))
+                            dv: Number(d['Exploration']),
+                            va: Number(d['Analysis']),
+                            iv: Number(d['Communication'])
                         }
                         fillValue(e.trim(), coordinates);
 
@@ -1401,43 +1237,11 @@ d3.text("data/papers.csv", function(data) {
                         }
                         trianglesOrganData[strIndex].push(coordinates);
                         break;
-                        /*
-                        case "Body":
-                        	levelData[5].count += 1/levelCount;
-                        	var coordinates = {
-                        		id:+d['ID'],
-                        		dv:Number(d['Direct Vis'].replace(',', '.')),
-                        		va:Number(d['Vis analysis'].replace(',', '.')),
-                        		iv:Number(d['Illus Vis'].replace(',', '.'))
-                        	};
-                        	fillValue(e.trim(), coordinates);
-
-                        	var strIndex = coordinates.dv + '_' + coordinates.va + '_' + coordinates.iv;
-                        	if(typeof(trianglesBodyData[strIndex]) == "undefined")
-                        	{
-                        		trianglesBodyData[strIndex] = new Array();
-                        	}
-                        	trianglesBodyData[strIndex].push(coordinates);
-                        	break;
-                        */
                     default:
                         break;
                 }
             });
         }
-
-        //for bubblechart
-        var keywords = d.Keywords.split(',');
-        var keywordsCount = keywords.length;
-
-        keywords.forEach(function(keyword) {
-            if (typeof(keywordsObject[keyword.trim()]) == "undefined") {
-                keywordsObject[keyword.trim()] = 1;
-            } else {
-                keywordsObject[keyword.trim()]++;
-            }
-        });
-
 
         //for interaction
         referenceData[+d['ID']] = d;
@@ -1478,6 +1282,5 @@ d3.text("data/papers.csv", function(data) {
     fillCategoryTriangles("Tissue", trianglesTissueData, maxCount, false);
     fillCategoryTriangles("Organ", trianglesOrganData, maxCount, false);
 
-    //keywordsBubbleChart(parsedCSV);
     fillImageCollection(parsedCSV);
 })
