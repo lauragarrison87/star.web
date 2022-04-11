@@ -18,7 +18,7 @@ You can either use the tool directly from here: [https://lauragarrison87.github.
 
 The default database does not include related surveys. To load the database that includes related surveys:
 1. In code editor of choice, open ```script.js```
-2. In **line 1251**, change reference from ```"data/papers.csv"``` to ```"data/papers-w-surveys.csv"```
+2. In **line 1160**, change reference from ```"data/papers.csv"``` to ```"data/papers-w-surveys.csv"```
 
 Related surveys are identified in the table view (bottom left) with an S as the first part of the ID.
 
