@@ -1,6 +1,6 @@
 # Trends & Opportunities in Visualization for Physiology: A Multiscale Overview
 ## Supplementary Material
-*This work is currently under submission*
+*This work is accepted to EuroVis (STARs) 2022*
 
 ![Screenshot of navigation interface for literature collected and categorized to date for Physiology Visualization State-of-the-Art Report](resource/preview.png)
 
