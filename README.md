@@ -1,9 +1,9 @@
 # Trends & Opportunities in Visualization for Physiology: A Multiscale Overview
 ## Supplementary Material
 
-![Screenshot of navigation interface for literature collected and categorized to date for Physiology Visualization State-of-the-Art Report](resource/preview.png)
-
 This paper has been accepted to EuroVis 2022 (STAR) and will be published in an upcoming issue of _Computer Graphics Forum_. **You can read the full paper [here](resource/Garrison_STAR_cameraready.pdf)**.
+
+![Screenshot of navigation interface for literature collected and categorized to date for Physiology Visualization State-of-the-Art Report](resource/preview.png)
 
 *Abstract*:
 Combining elements of biology, chemistry, physics, and medicine, the science of human physiology is complex and multifaceted. In this report, we offer a broad and multiscale perspective on key developments and challenges in visualization for physiology. Our literature search process combined standard methods with a state-of-the-art visual analysis search tool to identify surveys and representative individual approaches for physiology. Our resulting taxonomy sorts literature on two levels. The first level categorizes literature according to organizational complexity and ranges from molecule to organ. A second level identifies any of three high-level visualization tasks within a given work: exploration, analysis, and communication. The findings of this report may be used by visualization researchers to understand the overarching trends, challenges, and opportunities in visualization for physiology and to provide a foundation for discussion and future research directions in this area. 
